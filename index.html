@@ -6,71 +6,88 @@
     <title>Rite of Sygma</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            background: #f9f9f9;
-            font-family: 'Orbitron', sans-serif;
-            color: #111;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            padding: 2rem 1rem 1rem;
-        }
-        header img {
-            width: 140px;
-            height: auto;
-        }
-        h1 {
-            font-size: 2rem;
-            margin-top: 1rem;
-            letter-spacing: 0.1em;
-        }
-        .manifiesto {
-            margin: 2rem auto;
-            max-width: 600px;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-        .release {
-            margin: 3rem auto;
-            max-width: 400px;
-        }
-        .release img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-        }
-        .release-title {
-            font-size: 1.3rem;
-            margin-top: 0.5rem;
-        }
-        .buttons {
-            margin: 1rem auto;
-        }
-        .buttons button {
-            background: #111;
-            color: #fff;
-            border: none;
-            padding: 0.6rem 1.4rem;
-            margin: 0.5rem;
-            font-family: 'Orbitron', sans-serif;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .buttons button:hover {
-            background: #333;
-        }
-        footer {
-            margin-top: 4rem;
-            padding: 1rem;
-            font-size: 0.8rem;
-            color: #555;
-        }
-    </style>
+    body {
+        background: #000; /* Fondo negro */
+        color: #fff;      /* Letras blancas */
+        font-family: 'Orbitron', sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    header {
+        padding: 2rem 1rem 1rem;
+    }
+    header img {
+        width: 140px;
+        height: auto;
+    }
+    h1 {
+        font-size: 2rem;
+        margin-top: 1rem;
+        letter-spacing: 0.1em;
+        position: relative;
+        display: inline-block;
+        animation: glitch 1s infinite;
+    }
+    @keyframes glitch {
+        0% { text-shadow: 2px 2px #f0f, -2px -2px #0ff; }
+        20% { text-shadow: -2px -2px #f0f, 2px 2px #0ff; }
+        40% { text-shadow: 2px -2px #f0f, -2px 2px #0ff; }
+        60% { text-shadow: -2px 2px #f0f, 2px -2px #0ff; }
+        80% { text-shadow: 2px 2px #f0f, -2px -2px #0ff; }
+        100% { text-shadow: -2px -2px #f0f, 2px 2px #0ff; }
+    }
+    .manifiesto {
+        margin: 2rem auto;
+        max-width: 600px;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        font-weight: 500;
+    }
+    .release {
+        margin: 3rem auto;
+        max-width: 200px; /* Más pequeña */
+    }
+    .release img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+    .release img:hover {
+        transform: scale(1.05);
+    }
+    .release-title {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+    }
+    .buttons {
+        margin: 1rem auto;
+    }
+    .buttons button {
+        background: #111;
+        color: #fff;
+        border: none;
+        padding: 0.6rem 1.4rem;
+        margin: 0.5rem;
+        font-family: 'Orbitron', sans-serif;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s;
+    }
+    .buttons button:hover {
+        background: #333;
+    }
+    footer {
+        margin-top: 4rem;
+        padding: 1rem;
+        font-size: 0.8rem;
+        color: #aaa;
+    }
+</style> 
 </head>
 <body>
     <header>
@@ -83,14 +100,16 @@
     </div>
 
     <section class="release">
+    <a href="dreams-of-the-past.html">
         <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
-        <div class="release-title">Ekinopsis — Dreams of the Past</div>
-        <div class="buttons">
-            <button>🇦🇷 Pagar Argentina</button>
-            <button>🌍 Internacional</button>
-            <button>🪙 Cripto</button>
-        </div>
-    </section>
+    </a>
+    <div class="release-title">Ekinopsis — Dreams of the Past</div>
+    <div class="buttons">
+        <button>🇦🇷 Pagar Argentina</button>
+        <button>🌍 Internacional</button>
+        <button>🪙 Cripto</button>
+    </div>
+</section>
 
     <!-- FUTUROS RELEASES: Copiá este bloque para cada track nuevo -->
     <!--
