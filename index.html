@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Rite of Σygma</title>
+  <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -15,10 +15,15 @@
       padding: 2rem;
     }
 
+    .logo {
+      max-width: 180px;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
     h1.glitch {
       font-size: 2.5rem;
       position: relative;
-      color: white;
       letter-spacing: 0.1em;
     }
 
@@ -52,6 +57,13 @@
       100% { clip: rect(42px, 9999px, 44px, 0); }
     }
 
+    .mantra {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #aaa;
+      letter-spacing: 0.05em;
+    }
+
     .release {
       margin: 3rem auto;
       text-align: center;
@@ -74,31 +86,35 @@
       color: inherit;
     }
 
-    .buttons, .donate-button {
-      margin-top: 1rem;
+    .donate-button {
+      margin: 4rem auto 0;
     }
 
-    .buttons button, .donate-button button {
+    .donate-button a button {
       background: #111;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.6rem 1.4rem;
       font-family: 'Orbitron', sans-serif;
       cursor: pointer;
       border-radius: 4px;
-      margin: 0.2rem;
       transition: background 0.3s;
       letter-spacing: 0.05em;
     }
 
-    .buttons button:hover, .donate-button button:hover {
+    .donate-button a button:hover {
       background: #333;
     }
 
     .donate-section {
+      display: none;
       max-width: 600px;
       margin: 4rem auto;
       text-align: center;
+    }
+
+    .donate-section.active {
+      display: block;
     }
 
     .donate-section h2 {
@@ -126,38 +142,40 @@
   </style>
 </head>
 <body>
-  <!-- TÍTULO PRINCIPAL GLITCH -->
-  <h1 class="glitch" data-text="RITE OF ΣYGMA">RITE OF ΣYGMA</h1>
+  <!-- LOGO -->
+  <img class="logo" src="images/logo.png" alt="Rite of Sygma Logo">
 
-  <!-- RELEASE ACTUAL -->
+  <!-- NOMBRE GLITCH -->
+  <h1 class="glitch" data-text="Rite of Sygma">Rite of Sygma</h1>
+
+  <!-- FRASE RITUAL -->
+  <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
+
+  <!-- RELEASES EN MEDIO -->
   <section class="release">
     <a href="dreams-of-the-past/">
       <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
       <div class="release-title">Ekinopsis — Dreams of the Past</div>
     </a>
-    <div class="buttons">
-      <button>🇦🇷 Pagar Argentina</button>
-      <button>🌍 Internacional</button>
-      <button>🪙 Cripto</button>
-    </div>
   </section>
 
-  <!-- NUEVO SINGLE PLANTILLA -->
   <section class="release">
     <a href="nuevo-single/">
       <img src="images/cover_new.jpg" alt="Nuevo Single">
-      <div class="release-title">Ekinopsis — Shadows of Σ</div>
+      <div class="release-title">Ekinopsis — Shadows of Sygma</div>
     </a>
-    <div class="buttons">
-      <button>🇦🇷 Pagar Argentina</button>
-      <button>🌍 Internacional</button>
-      <button>🪙 Cripto</button>
-    </div>
   </section>
 
-  <!-- SECCIÓN DONACIONES -->
-  <section class="donate-section">
-    <h2>💜 Donar a Rite of Σygma</h2>
+  <!-- BOTÓN DONAR ABAJO -->
+  <div class="donate-button">
+    <a href="#" onclick="showDonations()">
+      <button>Σ Donar</button>
+    </a>
+  </div>
+
+  <!-- SECCIÓN DONACIONES OCULTA -->
+  <section id="donaciones" class="donate-section">
+    <h2>Donaciones a Rite of Sygma</h2>
 
     <div class="donate-option">
       <h3>🇦🇷 Alias Argentina</h3>
@@ -179,6 +197,12 @@
       </p>
     </div>
   </section>
+
+  <!-- SCRIPT PARA MOSTRAR DONACIONES -->
+  <script>
+    function showDonations() {
+      document.getElementById('donaciones').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
-
