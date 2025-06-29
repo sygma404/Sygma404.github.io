@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- TIPOGRAFÍAS -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  
   <style>
     body {
       background: #000;
@@ -13,6 +16,9 @@
       text-align: center;
       margin: 0;
       padding: 2rem;
+      min-height: 100vh;
+      border-left: 4px solid #fff;
+      border-right: 4px solid #fff;
     }
 
     .logo {
@@ -64,9 +70,53 @@
       letter-spacing: 0.05em;
     }
 
+    /* TÍTULO DE SECCIÓN RELEASES */
+    .section-title {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.2em;
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: #fff;
+      margin: 0.5rem auto 0;
+    }
+
+    .releases-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+
     .release {
-      margin: 3rem auto;
-      text-align: center;
+      position: relative;
+      padding: 1rem 0;
+    }
+
+    .release::before {
+      content: "";
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 2rem;
+      background: #fff;
+    }
+
+    .release:first-child::before {
+      display: none;
     }
 
     .release img {
@@ -76,7 +126,7 @@
 
     .release-title {
       color: white;
-      font-size: 20px;
+      font-size: 18px;
       margin-top: 0.5rem;
       text-decoration: none;
     }
@@ -138,55 +188,15 @@
       margin: 0.5rem 0 0 0;
       font-family: monospace;
       word-break: break-all;
-      
     }
 
-   body {
-  background: #000;
-  color: #fff;
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
-  margin: 0;
-  padding: 2rem;
-  min-height: 100vh;
-
-  /* Circuito solo en móviles */
-}
-
-@media (max-width: 768px) {
-  body {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    background:
-      linear-gradient(
-        to bottom,
-        #0ff 20%,
-        transparent 20% 40%,
-        #0ff 40% 60%,
-        transparent 60% 80%,
-        #0ff 80%
-      ),
-      linear-gradient(
-        to bottom,
-        #0ff 20%,
-        transparent 20% 40%,
-        #0ff 40% 60%,
-        transparent 60% 80%,
-        #0ff 80%
-      );
-    background-repeat: repeat-y;
-    background-position: left top, right top;
-    background-size: 4px 100%;
-  }
-
-  h1.glitch {
-    font-size: 1.5rem;
-  }
-
-}
-
+    @media (max-width: 768px) {
+      h1.glitch { font-size: 1.5rem; }
+      .section-title { font-size: 1.5rem; }
+    }
   </style>
 </head>
+
 <body>
   <!-- LOGO -->
   <img class="logo" src="images/logo.png" alt="Rite of Sygma Logo">
@@ -197,58 +207,24 @@
   <!-- FRASE RITUAL -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
-  <!-- RELEASES EN MEDIO -->
-  <section class="release">
-    <a href="dreams-of-the-past/">
-      <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
-      <div class="release-title">Ekinopsis — Dreams of the Past</div>
-    </a>
-  </section>
+  <!-- SECCIÓN RELEASES -->
+  <h2 class="section-title">RELEASES</h2>
 
-  <section class="release">
-    <a href="nuevo-single/">
-      <img src="images/cover_new.jpg" alt="Nuevo Single">
-      <div class="release-title">Ekinopsis — Shadows of Sygma</div>
-    </a>
-  </section>
-
-  <!-- BOTÓN DONAR ABAJO -->
-  <div class="donate-button">
-    <a href="#" onclick="showDonations()">
-      <button>Σ Donar</button>
-    </a>
-  </div>
-
-  <!-- SECCIÓN DONACIONES OCULTA -->
-  <section id="donaciones" class="donate-section">
-    <h2>Donaciones a Rite of Sygma</h2>
-
-    <div class="donate-option">
-      <h3>🇦🇷 Alias Argentina</h3>
-      <p>pulso.electrico.psy</p>
+  <div class="releases-container">
+    <div class="release">
+      <a href="dreams-of-the-past/">
+        <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
+        <div class="release-title">Ekinopsis — Dreams of the Past</div>
+      </a>
     </div>
 
-    <div class="donate-option">
-      <h3>₿ BTC (Red Nativa Bitcoin)</h3>
-      <p>bc1q9z2zwt9y6j5ej36hc6jmn59sf6h9r8h6u29sh3</p>
+    <div class="release">
+      <a href="nuevo-single/">
+        <img src="images/cover_new.jpg" alt="Nuevo Single">
+        <div class="release-title">Ekinopsis — Shadows of Sygma</div>
+      </a>
     </div>
 
-    <div class="donate-option">
-      <h3>🌍 Banco Exterior (SEPA)</h3>
-      <p>Nombre: NOAH Savings UAB<br>
-         IBAN: DE71202208000052249203<br>
-         Tipo de cuenta: Business<br>
-         País: Germany<br>
-         Tipo de transferencia: SEPA
-      </p>
-    </div>
-  </section>
-
-  <!-- SCRIPT PARA MOSTRAR DONACIONES -->
-  <script>
-    function showDonations() {
-      document.getElementById('donaciones').classList.toggle('active');
-    }
-  </script>
-</body>
-</html>
+    <div class="release">
+      <a href="#">
+        <img src="images/c
