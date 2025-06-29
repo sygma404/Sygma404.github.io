@@ -10,26 +10,25 @@
     <style>
     body {
         background: #000; /* Fondo negro */
-        color: #fff;      /* Letras blancas */
-        font-family: 'Orbitron', sans-serif;
-        margin: 0;
-        padding: 0;
-        text-align: center;
+    color: #fff;      /* Letras blancas */
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centra todo el contenido */
     }
-    header {
-        padding: 2rem 1rem 1rem;
+    header {text-align: center; /* Asegura que el logo y título estén centrados */
+    padding: 2rem 1rem 1rem;
     }
     header img {
-        width: 140px;
-        height: auto;
+       width: 140px;
+    height: auto;
+    display: block;   /* Evita espacios raros */
+    margin: 0 auto;   /* Centra horizontalmente */
     }
     h1 {
-        font-size: 2rem;
-        margin-top: 1rem;
-        letter-spacing: 0.1em;
-        position: relative;
-        display: inline-block;
-        animation: glitch 1s infinite;
+       font-size: 2rem;
+    margin-top: 1rem;
+    letter-spacing: 0.1em;
     }
     @keyframes glitch {
         0% { text-shadow: 2px 2px #f0f, -2px -2px #0ff; }
@@ -102,12 +101,11 @@
     <section class="release">
     <a href="dreams-of-the-past/">
         <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
+        <div class="release-title">Ekinopsis — Dreams of the Past</div>
     </a>
     <div class="release-title">Ekinopsis — Dreams of the Past</div>
-    <div class="buttons">
-        <button>🇦🇷 Pagar Argentina</button>
-        <button>🌍 Internacional</button>
-        <button>🪙 Cripto</button>
+    <div class="donate-button">
+  <button>💜 Donar</button>
     </div>
 </section>
 
