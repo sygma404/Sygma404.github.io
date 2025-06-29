@@ -146,10 +146,53 @@
     font-size: 1.5rem; /* Tamaño más chico solo en móvil */
   }
       body {
-  border-left: 2px solid #0ff; /* color cian, estilo circuito */
+  border-left: 2px solid #0ff; /* color blanco, estilo circuito */
   border-right: 2px solid #0ff;
   padding: 0 2rem; /* espacio para que el contenido no quede pegado */
 }
+      body {
+  background: #000;
+  color: blanco;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+
+  /* Circuito solo en móviles */
+}
+
+@media (max-width: 768px) {
+  body {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    background:
+      linear-gradient(
+        to bottom,
+        #0ff 20%,
+        transparent 20% 40%,
+        #0ff 40% 60%,
+        transparent 60% 80%,
+        #0ff 80%
+      ),
+      linear-gradient(
+        to bottom,
+        #0ff 20%,
+        transparent 20% 40%,
+        #0ff 40% 60%,
+        transparent 60% 80%,
+        #0ff 80%
+      );
+    background-repeat: repeat-y;
+    background-position: left top, right top;
+    background-size: 4px 100%;
+  }
+
+  h1.glitch {
+    font-size: 1.5rem;
+  }
+}
+
 
 }
 
