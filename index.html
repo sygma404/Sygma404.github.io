@@ -1,178 +1,184 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Rite of Sygma</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
+  <meta charset="UTF-8" />
+  <title>Rite of Σygma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
     body {
-        background: #000; /* Fondo negro */
-    color: #fff;      /* Letras blancas */
-    font-family: 'Orbitron', sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Centra todo el contenido */
+      background: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
     }
-    header {text-align: center; /* Asegura que el logo y título estén centrados */
-    padding: 2rem 1rem 1rem;
+
+    h1.glitch {
+      font-size: 2.5rem;
+      position: relative;
+      color: white;
+      letter-spacing: 0.1em;
     }
-    header img {
-       width: 140px;
-    height: auto;
-    display: block;   /* Evita espacios raros */
-    margin: 0 auto;   /* Centra horizontalmente */
+
+    h1.glitch::before,
+    h1.glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
     }
-    h1 {
-       font-size: 2rem;
-    margin-top: 1rem;
-    letter-spacing: 0.1em;
+
+    h1.glitch::before {
+      text-shadow: 2px 0 #f0f;
+      clip: rect(0, 900px, 0, 0);
+      animation: glitch 2s infinite linear alternate-reverse;
     }
+
+    h1.glitch::after {
+      text-shadow: -2px 0 #0ff;
+      clip: rect(0, 900px, 0, 0);
+      animation: glitch 3s infinite linear alternate-reverse;
+    }
+
     @keyframes glitch {
-        0% { text-shadow: 2px 2px #f0f, -2px -2px #0ff; }
-        20% { text-shadow: -2px -2px #f0f, 2px 2px #0ff; }
-        40% { text-shadow: 2px -2px #f0f, -2px 2px #0ff; }
-        60% { text-shadow: -2px 2px #f0f, 2px -2px #0ff; }
-        80% { text-shadow: 2px 2px #f0f, -2px -2px #0ff; }
-        100% { text-shadow: -2px -2px #f0f, 2px 2px #0ff; }
+      0% { clip: rect(42px, 9999px, 44px, 0); }
+      20% { clip: rect(12px, 9999px, 74px, 0); }
+      40% { clip: rect(52px, 9999px, 60px, 0); }
+      60% { clip: rect(92px, 9999px, 100px, 0); }
+      80% { clip: rect(12px, 9999px, 20px, 0); }
+      100% { clip: rect(42px, 9999px, 44px, 0); }
     }
-    .manifiesto {
-        margin: 2rem auto;
-        max-width: 600px;
-        font-size: 1.2rem;
-        line-height: 1.6;
-        font-weight: 500;
-    }
+
     .release {
-        margin: 3rem auto;
-        max-width: 200px; /* Más pequeña */
+      margin: 3rem auto;
+      text-align: center;
     }
+
     .release img {
-        width: 100%;
-        height: auto;
-        border-radius: 6px;
-        transition: transform 0.3s;
-        cursor: pointer;
+      max-width: 200px;
+      border-radius: 6px;
     }
-    .release img:hover {
-        transform: scale(1.05);
-    }
+
     .release-title {
-        font-size: 1.3rem;
-        margin-top: 0.5rem;
+      color: white;
+      font-size: 20px;
+      margin-top: 0.5rem;
+      text-decoration: none;
     }
-    .buttons {
-        margin: 1rem auto;
+
+    .release a {
+      text-decoration: none;
+      color: inherit;
     }
-    .buttons button {
-        background: #111;
-        color: #fff;
-        border: none;
-        padding: 0.6rem 1.4rem;
-        margin: 0.5rem;
-        font-family: 'Orbitron', sans-serif;
-        cursor: pointer;
-        border-radius: 4px;
-        transition: background 0.3s;
+
+    .buttons, .donate-button {
+      margin-top: 1rem;
     }
-    .buttons button:hover {
-        background: #333;
+
+    .buttons button, .donate-button button {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      border-radius: 4px;
+      margin: 0.2rem;
+      transition: background 0.3s;
+      letter-spacing: 0.05em;
     }
-    footer {
-        margin-top: 4rem;
-        padding: 1rem;
-        font-size: 0.8rem;
-        color: #aaa;
+
+    .buttons button:hover, .donate-button button:hover {
+      background: #333;
     }
-</style> 
+
+    .donate-section {
+      max-width: 600px;
+      margin: 4rem auto;
+      text-align: center;
+    }
+
+    .donate-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .donate-option {
+      background: #111;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
+
+    .donate-option h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .donate-option p {
+      margin: 0.5rem 0 0 0;
+      font-family: monospace;
+      word-break: break-all;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="images/logo.png" alt="Rite of Sygma Logo">
-        <h1>RITE OF SYGMA</h1>
-    </header>
+  <!-- TÍTULO PRINCIPAL GLITCH -->
+  <h1 class="glitch" data-text="RITE OF ΣYGMA">RITE OF ΣYGMA</h1>
 
-    <div class="manifiesto">
-        <p>Donde las frecuencias se vuelven ceremonia.</p>
+  <!-- RELEASE ACTUAL -->
+  <section class="release">
+    <a href="dreams-of-the-past/">
+      <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
+      <div class="release-title">Ekinopsis — Dreams of the Past</div>
+    </a>
+    <div class="buttons">
+      <button>🇦🇷 Pagar Argentina</button>
+      <button>🌍 Internacional</button>
+      <button>🪙 Cripto</button>
+    </div>
+  </section>
+
+  <!-- NUEVO SINGLE PLANTILLA -->
+  <section class="release">
+    <a href="nuevo-single/">
+      <img src="images/cover_new.jpg" alt="Nuevo Single">
+      <div class="release-title">Ekinopsis — Shadows of Σ</div>
+    </a>
+    <div class="buttons">
+      <button>🇦🇷 Pagar Argentina</button>
+      <button>🌍 Internacional</button>
+      <button>🪙 Cripto</button>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DONACIONES -->
+  <section class="donate-section">
+    <h2>💜 Donar a Rite of Σygma</h2>
+
+    <div class="donate-option">
+      <h3>🇦🇷 Alias Argentina</h3>
+      <p>pulso.electrico.psy</p>
     </div>
 
-    <!-- HTML -->
-<section class="release">
-  <a href="dreams-of-the-past/">
-    <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
-    <div class="release-title">Ekinopsis — Dreams of the Past</div>
-  </a>
-  <div class="donate-button">
-    <button>💜 Donar a Rite of Σygma</button>
-  </div>
-</section>
+    <div class="donate-option">
+      <h3>₿ BTC (Red Nativa Bitcoin)</h3>
+      <p>bc1q9z2zwt9y6j5ej36hc6jmn59sf6h9r8h6u29sh3</p>
+    </div>
 
-<!-- CSS -->
-<style>
-  .release {
-    text-align: center;
-    margin: 2rem auto;
-  }
-
-  .release img {
-    max-width: 200px;  /* Ajusta el tamaño de la portada */
-    display: block;
-    margin: 0 auto;
-    border-radius: 6px;
-  }
-
-  .release-title {
-    color: white;
-    font-size: 20px;   /* Más pequeño que antes */
-    text-decoration: none;
-    margin-top: 0.5rem;
-    font-family: 'Orbitron', sans-serif;
-  }
-
-  .release a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .donate-button {
-    margin-top: 1rem;  /* Espacio entre título y botón */
-  }
-
-  .donate-button button {
-    background: #111;
-    color: white;
-    border: none;
-    padding: 0.6rem 1.4rem;
-    font-family: 'Orbitron', sans-serif;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.3s;
-    letter-spacing: 0.05em;
-  }
-
-  .donate-button button:hover {
-    background: #333;
-  }
-</style>
-
-
-    <!-- FUTUROS RELEASES: Copiá este bloque para cada track nuevo -->
-    <!--
-    <section class="release">
-        <img src="images/otra-portada.jpg" alt="Nuevo Track">
-        <div class="release-title">Título del Nuevo Track</div>
-        <div class="buttons">
-            <button>🇦🇷 Pagar Argentina</button>
-            <button>🌍 Internacional</button>
-            <button>🪙 Cripto</button>
-        </div>
-    </section>
-    -->
-
-    <footer>
-        &copy; 2025 SYGMA404. All rights reserved.
-    </footer>
+    <div class="donate-option">
+      <h3>🌍 Banco Exterior (SEPA)</h3>
+      <p>Nombre: NOAH Savings UAB<br>
+         IBAN: DE71202208000052249203<br>
+         Tipo de cuenta: Business<br>
+         País: Germany<br>
+         Tipo de transferencia: SEPA
+      </p>
+    </div>
+  </section>
 </body>
 </html>
+
