@@ -8,11 +8,10 @@
   <meta property="og:title" content="Rite of Sygma — Sello Ritual">
   <meta property="og:description" content="Portal oficial de Rite of Sygma: música electrónica ritual, releases y manifiesto underground.">
   <meta property="og:url" content="https://sygma404.github.io/">
-  
-  
+
   <!-- TIPOGRAFÍAS -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
-  
+
   <style>
     body {
       background: #000;
@@ -25,179 +24,59 @@
       border-left: 4px solid #fff;
       border-right: 4px solid #fff;
     }
+    /* …tus estilos existentes… */
 
-    .logo {
-      max-width: 180px;
-      margin: 0 auto 1rem;
-      display: block;
-    }
-
-    h1.glitch {
-      font-size: 2.5rem;
-      position: relative;
-      letter-spacing: 0.1em;
-    }
-
-    h1.glitch::before,
-    h1.glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    h1.glitch::before {
-      text-shadow: 2px 0 #f0f;
-      clip: rect(0, 900px, 0, 0);
-      animation: glitch 2s infinite linear alternate-reverse;
-    }
-
-    h1.glitch::after {
-      text-shadow: -2px 0 #0ff;
-      clip: rect(0, 900px, 0, 0);
-      animation: glitch 3s infinite linear alternate-reverse;
-    }
-
-    @keyframes glitch {
-      0% { clip: rect(42px, 9999px, 44px, 0); }
-      20% { clip: rect(12px, 9999px, 74px, 0); }
-      40% { clip: rect(52px, 9999px, 60px, 0); }
-      60% { clip: rect(92px, 9999px, 100px, 0); }
-      80% { clip: rect(12px, 9999px, 20px, 0); }
-      100% { clip: rect(42px, 9999px, 44px, 0); }
-    }
-
-    .mantra {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      color: #aaa;
-      letter-spacing: 0.05em;
-    }
-
-    /* TÍTULO DE SECCIÓN RELEASES */
-    .section-title {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.2em;
-      margin-top: 4rem;
-      margin-bottom: 2rem;
-      position: relative;
-      text-transform: uppercase;
-    }
-
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 2px;
-      background: #fff;
-      margin: 0.5rem auto 0;
-    }
-
-    .releases-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 4rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .release {
-      position: relative;
-      padding: 1rem 0;
-    }
-
-    .release::before {
-      content: "";
-      position: absolute;
-      top: -2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 2rem;
-      background: #fff;
-    }
-
-    .release:first-child::before {
-      display: none;
-    }
-
-    .release img {
-      max-width: 200px;
-      border-radius: 6px;
-    }
-
-    .release-title {
-      color: white;
-      font-size: 18px;
-      margin-top: 0.5rem;
-      text-decoration: none;
-    }
-
-    .release a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .donate-button {
-      margin: 4rem auto 0;
-    }
-
-    .donate-button a button {
-      background: #111;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.4rem;
-      font-family: 'Orbitron', sans-serif;
+    /* OVNI flotante */
+    #share-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 48px;
       cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.3s;
-      letter-spacing: 0.05em;
+      z-index: 1000;
     }
-
-    .donate-button a button:hover {
-      background: #333;
-    }
-
-    .donate-section {
-      display: none;
-      max-width: 600px;
-      margin: 4rem auto;
-      text-align: center;
-    }
-
-    .donate-section.active {
-      display: block;
-    }
-
-    .donate-section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .donate-option {
-      background: #111;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-    }
-
-    .donate-option h3 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .donate-option p {
-      margin: 0.5rem 0 0 0;
-      font-family: monospace;
-      word-break: break-all;
-    }
-
     @media (max-width: 768px) {
-      h1.glitch { font-size: 1.5rem; }
-      .section-title { font-size: 1.5rem; }
+      #share-btn {
+        width: 32px;
+        top: 10px;
+        right: 10px;
+      }
+    }
+
+    /* Menú modal de compartir */
+    #share-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.9);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      z-index: 1001;
+    }
+    #share-modal p {
+      color: #0ff;
+      margin-bottom: 12px;
+    }
+    #share-modal a {
+      display: block;
+      color: #fff;
+      margin: 6px 0;
+      text-decoration: none;
+    }
+    #share-modal a:hover {
+      text-decoration: underline;
+    }
+    #share-modal button {
+      margin-top: 12px;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -232,38 +111,55 @@
 
     <div class="release">
       <a href="#">
-        <img src="images/cover_soon.jpg" alt="Proximamente">
+        <img src="images/cover_soon.jpg" alt="Próximamente">
         <div class="release-title">Nuevo Ritual — Próximamente</div>
       </a>
     </div>
   </div>
 
   <!-- BOTÓN DONAR -->
-  <a href="donaciones/index.html" style="color:white; text-decoration:none;">
-  💰 Donar a Rite of Sygma
-</a>
+  <a href="donaciones/index.html"
+     style="color:white; text-decoration:none; background:#111; padding:10px 20px; border-radius:8px; display:inline-block; margin:40px auto 0;">
+    💰 Donar a Rite of Sygma
+  </a>
 
-  <!-- BOTÓN COMPARTIR FLOTANTE -->
-<a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Descubre Rite of Sygma — Música electrónica ritual"
-   target="_blank"
-   style="
-     position: fixed;
-     top: 20px;
-     right: 20px;
-     background: #111;
-     color: white;
-     padding: 8px 14px;
-     border-radius: 20px;
-     text-decoration: none;
-     font-size: 14px;
-     z-index: 1000;
-     box-shadow: 0 0 8px #0ff;
-     transition: box-shadow 0.3s ease;
-   ">
-  📤 Compartir Ritual
-</a>
+  <!-- OVNI FLOTANTE -->
+  <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual">
 
+  <!-- MENÚ MODAL DE COMPARTIR -->
+  <div id="share-modal">
+    <p>🔗 Compartir Rite of Sygma</p>
+    <a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Descubre%20Rite%20of%20Sygma%20—%20Música%20electrónica%20ritual"
+       target="_blank">Telegram</a>
+    <a href="https://api.whatsapp.com/send?text=Descubre%20Rite%20of%20Sygma%20https://sygma404.github.io/"
+       target="_blank">WhatsApp</a>
+    <a href="https://twitter.com/intent/tweet?text=Descubre%20Rite%20of%20Sygma%20https://sygma404.github.io/"
+       target="_blank">Twitter</a>
+    <a href="mailto:?subject=Rite%20of%20Sygma&body=Descubre%20Rite%20of%20Sygma%20https://sygma404.github.io/">Email</a>
+    <button id="share-close">Cerrar</button>
+  </div>
 
-  
+  <script>
+    const shareBtn = document.getElementById('share-btn');
+    const shareModal = document.getElementById('share-modal');
+    const shareClose = document.getElementById('share-close');
+
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Rite of Sygma',
+          text: 'Descubre Rite of Sygma — Música electrónica ritual',
+          url: 'https://sygma404.github.io/'
+        }).catch(console.error);
+      } else {
+        shareModal.style.display = 'block';
+      }
+    });
+
+    shareClose.addEventListener('click', () => {
+      shareModal.style.display = 'none';
+    });
+  </script>
+
 </body>
 </html>
