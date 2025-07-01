@@ -65,9 +65,17 @@
       letter-spacing: 0.05em;
     }
 
-    .release {
-      margin: 3rem auto;
-      text-align: center;
+    h2 {
+      margin-top: 3rem;
+      letter-spacing: 0.1em;
+    }
+
+    .releases-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
     }
 
     .release img {
@@ -107,42 +115,9 @@
       background: #333;
     }
 
-    .donate-section {
-      display: none;
-      max-width: 600px;
-      margin: 4rem auto;
-      text-align: center;
-    }
-
-    .donate-section.active {
-      display: block;
-    }
-
-    .donate-section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .donate-option {
-      background: #111;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 6px;
-    }
-
-    .donate-option h3 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .donate-option p {
-      margin: 0.5rem 0 0 0;
-      font-family: monospace;
-      word-break: break-all;
-    }
-
     @media (max-width: 768px) {
       body {
+        background: #000;
         border-left: 4px solid transparent;
         border-right: 4px solid transparent;
         background:
@@ -187,55 +162,37 @@
   <!-- FRASE RITUAL -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
-  <!-- 3 RELEASES -->
-  <section class="release">
-    <a href="dreams-of-the-past/">
-      <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
-      <div class="release-title">Ekinopsis — Dreams of the Past</div>
-    </a>
-  </section>
+  <!-- TÍTULO RELEASES -->
+  <h2>RELEASES</h2>
 
-  <section class="release">
-    <a href="nuevo-single/">
-      <img src="images/cover_new.jpg" alt="Nuevo Single">
-      <div class="release-title">Ekinopsis — Shadows of Sygma</div>
-    </a>
-  </section>
-
-  <section class="release">
-    <a href="proximo-release/">
-      <img src="images/cover_soon.jpg" alt="Próximo Ritual">
-      <div class="release-title">Próximo Ritual — Coming Soon</div>
-    </a>
-  </section>
+  <!-- RELEASES GRILLA -->
+  <div class="releases-container">
+    <div class="release">
+      <a href="dreams-of-the-past/">
+        <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
+        <div class="release-title">Ekinopsis — Dreams of the Past</div>
+      </a>
+    </div>
+    <div class="release">
+      <a href="nuevo-single/">
+        <img src="images/cover_new.jpg" alt="Nuevo Single">
+        <div class="release-title">Ekinopsis — Shadows of Sygma</div>
+      </a>
+    </div>
+    <div class="release">
+      <a href="proximo-release/">
+        <img src="images/cover_soon.jpg" alt="Próximo Ritual">
+        <div class="release-title">Próximo Ritual — Coming Soon</div>
+      </a>
+    </div>
+  </div>
 
   <!-- BOTÓN DONAR -->
   <div class="donate-button">
-    <a href="#" onclick="showDonations()">
+    <a href="donaciones/index.html">
       <button>Σ Donar</button>
     </a>
   </div>
-
-  <!-- SECCIÓN DONACIONES -->
-  <section id="donaciones" class="donate-section">
-    <h2>Donaciones a Rite of Sygma</h2>
-    <div class="donate-option">
-      <h3>🇦🇷 Alias Argentina</h3>
-      <p>pulso.electrico.psy</p>
-    </div>
-    <div class="donate-option">
-      <h3>₿ BTC (Red Nativa Bitcoin)</h3>
-      <p>bc1q9z2zwt9y6j5ej36hc6jmn59sf6h9r8h6u29sh3</p>
-    </div>
-    <div class="donate-option">
-      <h3>🌍 Banco Exterior (SEPA)</h3>
-      <p>Nombre: NOAH Savings UAB<br>
-         IBAN: DE71202208000052249203<br>
-         Tipo de cuenta: Business<br>
-         País: Germany<br>
-         Tipo de transferencia: SEPA</p>
-    </div>
-  </section>
 
   <!-- OVNI FLOTANTE COMPARTIR -->
   <a href="#" id="share-link" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
@@ -253,10 +210,6 @@
 
   <!-- SCRIPTS -->
   <script>
-    function showDonations() {
-      document.getElementById('donaciones').classList.toggle('active');
-    }
-
     const shareBtn = document.getElementById('share-link');
     const shareModal = document.getElementById('share-modal');
     const shareClose = document.getElementById('share-close');
