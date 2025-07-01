@@ -115,31 +115,40 @@
       background: #333;
     }
 
-    /* Ajuste OVNI default */
+    /* OVNI por defecto */
+    #share-link {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
     #share-btn {
       width: 48px;
-      z-index: 1000;
+      cursor: pointer;
+      z-index: 9999;
+      pointer-events: auto;
     }
 
     @media (max-width: 768px) {
       body {
-        background-color: #000; /* Fondo sólido asegurado */
+        background-color: #000; /* Fondo sólido */
         background-image:
           linear-gradient(
             to bottom,
-            #0ff 20%,
+            #fff 20%,
             transparent 20% 40%,
-            #0ff 40% 60%,
+            #fff 40% 60%,
             transparent 60% 80%,
-            #0ff 80%
+            #fff 80%
           ),
           linear-gradient(
             to bottom,
-            #0ff 20%,
+            #fff 20%,
             transparent 20% 40%,
-            #0ff 40% 60%,
+            #fff 40% 60%,
             transparent 60% 80%,
-            #0ff 80%
+            #fff 80%
           );
         background-repeat: repeat-y;
         background-position: left top, right top;
@@ -199,12 +208,12 @@
   </div>
 
   <!-- OVNI FLOTANTE COMPARTIR -->
-  <a href="#" id="share-link" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-    <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual" style="cursor: pointer;">
+  <a href="#" id="share-link">
+    <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual">
   </a>
 
   <!-- MODAL COMPARTIR -->
-  <div id="share-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);padding:20px;border-radius:8px;text-align:center;z-index:1001;">
+  <div id="share-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);padding:20px;border-radius:8px;text-align:center;z-index:10000;">
     <p style="color:#0ff;margin-bottom:12px;">🔗 Compartir Rite of Sygma</p>
     <a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Descubre Rite of Sygma" target="_blank" style="display:block;color:#fff;margin:6px 0;">Telegram</a>
     <a href="https://api.whatsapp.com/send?text=Descubre Rite of Sygma https://sygma404.github.io/" target="_blank" style="display:block;color:#fff;margin:6px 0;">WhatsApp</a>
