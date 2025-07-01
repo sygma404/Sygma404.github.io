@@ -115,12 +115,16 @@
       background: #333;
     }
 
+    /* Ajuste OVNI default */
+    #share-btn {
+      width: 48px;
+      z-index: 1000;
+    }
+
     @media (max-width: 768px) {
       body {
-        background: #000;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        background:
+        background-color: #000; /* Fondo sólido asegurado */
+        background-image:
           linear-gradient(
             to bottom,
             #0ff 20%,
@@ -196,7 +200,7 @@
 
   <!-- OVNI FLOTANTE COMPARTIR -->
   <a href="#" id="share-link" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-    <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual" style="width: 48px; cursor: pointer;">
+    <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual" style="cursor: pointer;">
   </a>
 
   <!-- MODAL COMPARTIR -->
