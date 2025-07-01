@@ -141,16 +141,6 @@
       word-break: break-all;
     }
 
-    body {
-      background: #000;
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 2rem;
-      min-height: 100vh;
-    }
-
     @media (max-width: 768px) {
       body {
         border-left: 4px solid transparent;
@@ -181,7 +171,6 @@
         font-size: 1.5rem;
       }
 
-      /* OVNI más pequeño en móviles */
       #share-btn {
         width: 32px !important;
       }
@@ -198,7 +187,7 @@
   <!-- FRASE RITUAL -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
-  <!-- RELEASES EN MEDIO -->
+  <!-- 3 RELEASES -->
   <section class="release">
     <a href="dreams-of-the-past/">
       <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
@@ -213,54 +202,81 @@
     </a>
   </section>
 
-  <!-- BOTÓN DONAR ABAJO -->
+  <section class="release">
+    <a href="proximo-release/">
+      <img src="images/cover_soon.jpg" alt="Próximo Ritual">
+      <div class="release-title">Próximo Ritual — Coming Soon</div>
+    </a>
+  </section>
+
+  <!-- BOTÓN DONAR -->
   <div class="donate-button">
     <a href="#" onclick="showDonations()">
       <button>Σ Donar</button>
     </a>
   </div>
 
-  <!-- SECCIÓN DONACIONES OCULTA -->
+  <!-- SECCIÓN DONACIONES -->
   <section id="donaciones" class="donate-section">
     <h2>Donaciones a Rite of Sygma</h2>
-
     <div class="donate-option">
       <h3>🇦🇷 Alias Argentina</h3>
       <p>pulso.electrico.psy</p>
     </div>
-
     <div class="donate-option">
       <h3>₿ BTC (Red Nativa Bitcoin)</h3>
       <p>bc1q9z2zwt9y6j5ej36hc6jmn59sf6h9r8h6u29sh3</p>
     </div>
-
     <div class="donate-option">
       <h3>🌍 Banco Exterior (SEPA)</h3>
       <p>Nombre: NOAH Savings UAB<br>
          IBAN: DE71202208000052249203<br>
          Tipo de cuenta: Business<br>
          País: Germany<br>
-         Tipo de transferencia: SEPA
-      </p>
+         Tipo de transferencia: SEPA</p>
     </div>
   </section>
 
-  <!-- OVNI BOTÓN COMPARTIR FLOTANTE -->
+  <!-- OVNI FLOTANTE COMPARTIR -->
   <a href="#" id="share-link" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
     <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual" style="width: 48px; cursor: pointer;">
   </a>
 
-  <!-- MODAL DE COMPARTIR -->
-  <div id="share-modal" style="
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.95);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    z-index: 1001;">
-    <p style="color:#0ff; margin-bottom:12px;">🔗 Compartir Rite of Sygma</p>
-    <a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Descubre%20Rite%20of%20Sygma" target="_blank" style="display:block; color:#fff; margin:6px 0;">Telegram</a>
-    <a href="https://api.whatsapp.com/send?text=Descubre%20Rite%
+  <!-- MODAL COMPARTIR -->
+  <div id="share-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);padding:20px;border-radius:8px;text-align:center;z-index:1001;">
+    <p style="color:#0ff;margin-bottom:12px;">🔗 Compartir Rite of Sygma</p>
+    <a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Descubre Rite of Sygma" target="_blank" style="display:block;color:#fff;margin:6px 0;">Telegram</a>
+    <a href="https://api.whatsapp.com/send?text=Descubre Rite of Sygma https://sygma404.github.io/" target="_blank" style="display:block;color:#fff;margin:6px 0;">WhatsApp</a>
+    <a href="mailto:?subject=Rite of Sygma&body=Descubre Rite of Sygma https://sygma404.github.io/" style="display:block;color:#fff;margin:6px 0;">Email</a>
+    <button id="share-close" style="margin-top:12px;background:#111;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;">Cerrar</button>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    function showDonations() {
+      document.getElementById('donaciones').classList.toggle('active');
+    }
+
+    const shareBtn = document.getElementById('share-link');
+    const shareModal = document.getElementById('share-modal');
+    const shareClose = document.getElementById('share-close');
+
+    shareBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (navigator.share) {
+        navigator.share({
+          title: 'Rite of Sygma',
+          text: 'Descubre Rite of Sygma — Música electrónica ritual',
+          url: 'https://sygma404.github.io/'
+        }).catch(console.error);
+      } else {
+        shareModal.style.display = 'block';
+      }
+    });
+
+    shareClose.addEventListener('click', () => {
+      shareModal.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
