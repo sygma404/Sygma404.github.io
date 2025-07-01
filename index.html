@@ -115,12 +115,13 @@
       background: #333;
     }
 
-    /* OVNI flotante */
+    /* BOTÓN OVNI flotante */
     #share-link {
       position: fixed;
       top: 20px;
       right: 20px;
       z-index: 9999;
+      text-align: center;
     }
 
     #share-btn {
@@ -128,17 +129,45 @@
       cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      body {
-        background: #000; /* Fondo negro sólido sin líneas */
-      }
+    #share-text {
+      color: white;
+      font-size: 0.7rem;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
 
+    /* BOTÓN ALIEN flotante */
+    #artist-link {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+      text-align: center;
+    }
+
+    #artist-btn {
+      width: 48px;
+      cursor: pointer;
+    }
+
+    #artist-text {
+      color: white;
+      font-size: 0.7rem;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 768px) {
       h1.glitch {
         font-size: 1.5rem;
       }
 
-      #share-btn {
+      #share-btn, #artist-btn {
         width: 32px !important;
+      }
+
+      #share-text, #artist-text {
+        font-size: 0.6rem;
       }
     }
   </style>
@@ -187,7 +216,14 @@
 
   <!-- OVNI FLOTANTE COMPARTIR -->
   <a href="#" id="share-link">
-    <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual">
+    <img src="images/share-ovni.jpeg" id="share-btn" alt="Compartir Ritual">
+    <div id="share-text">Compartir</div>
+  </a>
+
+  <!-- ALIEN FLOTANTE ARTISTS -->
+  <a href="artists/index.html" id="artist-link">
+    <img src="images/alien.jpeg" id="artist-btn" alt="Sygma Artists">
+    <div id="artist-text">Sygma Artists</div>
   </a>
 
   <!-- MODAL COMPARTIR -->
