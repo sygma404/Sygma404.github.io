@@ -4,14 +4,7 @@
   <meta charset="UTF-8" />
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portal oficial de Rite of Sygma: música electrónica ritual, releases y manifiesto underground.">
-  <meta property="og:title" content="Rite of Sygma — Sello Ritual">
-  <meta property="og:description" content="Portal oficial de Rite of Sygma: música electrónica ritual, releases y manifiesto underground.">
-  <meta property="og:url" content="https://sygma404.github.io/">
-
-  <!-- TIPOGRAFÍAS -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       background: #000;
@@ -21,66 +14,180 @@
       margin: 0;
       padding: 2rem;
       min-height: 100vh;
-      border-left: 4px solid #fff;
-      border-right: 4px solid #fff;
-    }
-    /* …tus estilos existentes… */
-
-    /* OVNI flotante */
-    #share-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 48px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    @media (max-width: 768px) {
-      #share-btn {
-        width: 32px;
-        top: 10px;
-        right: 10px;
-      }
     }
 
-    /* Menú modal de compartir */
-    #share-modal {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.9);
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      z-index: 1001;
-    }
-    #share-modal p {
-      color: #0ff;
-      margin-bottom: 12px;
-    }
-    #share-modal a {
+    .logo {
+      max-width: 180px;
+      margin: 0 auto 1rem;
       display: block;
-      color: #fff;
-      margin: 6px 0;
+    }
+
+    h1.glitch {
+      font-size: 2.5rem;
+      position: relative;
+      letter-spacing: 0.1em;
+    }
+
+    h1.glitch::before,
+    h1.glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    h1.glitch::before {
+      text-shadow: 2px 0 #f0f;
+      clip: rect(0, 900px, 0, 0);
+      animation: glitch 2s infinite linear alternate-reverse;
+    }
+
+    h1.glitch::after {
+      text-shadow: -2px 0 #0ff;
+      clip: rect(0, 900px, 0, 0);
+      animation: glitch 3s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch {
+      0% { clip: rect(42px, 9999px, 44px, 0); }
+      20% { clip: rect(12px, 9999px, 74px, 0); }
+      40% { clip: rect(52px, 9999px, 60px, 0); }
+      60% { clip: rect(92px, 9999px, 100px, 0); }
+      80% { clip: rect(12px, 9999px, 20px, 0); }
+      100% { clip: rect(42px, 9999px, 44px, 0); }
+    }
+
+    .mantra {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #aaa;
+      letter-spacing: 0.05em;
+    }
+
+    .release {
+      margin: 3rem auto;
+      text-align: center;
+    }
+
+    .release img {
+      max-width: 200px;
+      border-radius: 6px;
+    }
+
+    .release-title {
+      color: white;
+      font-size: 20px;
+      margin-top: 0.5rem;
       text-decoration: none;
     }
-    #share-modal a:hover {
-      text-decoration: underline;
+
+    .release a {
+      text-decoration: none;
+      color: inherit;
     }
-    #share-modal button {
-      margin-top: 12px;
+
+    .donate-button {
+      margin: 4rem auto 0;
+    }
+
+    .donate-button a button {
       background: #111;
-      color: #fff;
+      color: white;
       border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
+      padding: 0.6rem 1.4rem;
+      font-family: 'Orbitron', sans-serif;
       cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+      letter-spacing: 0.05em;
+    }
+
+    .donate-button a button:hover {
+      background: #333;
+    }
+
+    .donate-section {
+      display: none;
+      max-width: 600px;
+      margin: 4rem auto;
+      text-align: center;
+    }
+
+    .donate-section.active {
+      display: block;
+    }
+
+    .donate-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .donate-option {
+      background: #111;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
+
+    .donate-option h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .donate-option p {
+      margin: 0.5rem 0 0 0;
+      font-family: monospace;
+      word-break: break-all;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+      min-height: 100vh;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        background:
+          linear-gradient(
+            to bottom,
+            #0ff 20%,
+            transparent 20% 40%,
+            #0ff 40% 60%,
+            transparent 60% 80%,
+            #0ff 80%
+          ),
+          linear-gradient(
+            to bottom,
+            #0ff 20%,
+            transparent 20% 40%,
+            #0ff 40% 60%,
+            transparent 60% 80%,
+            #0ff 80%
+          );
+        background-repeat: repeat-y;
+        background-position: left top, right top;
+        background-size: 4px 100%;
+      }
+
+      h1.glitch {
+        font-size: 1.5rem;
+      }
+
+      /* OVNI más pequeño en móviles */
+      #share-btn {
+        width: 32px !important;
+      }
     }
   </style>
 </head>
-
 <body>
   <!-- LOGO -->
   <img class="logo" src="images/logo.png" alt="Rite of Sygma Logo">
@@ -91,75 +198,69 @@
   <!-- FRASE RITUAL -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
-  <!-- SECCIÓN RELEASES -->
-  <h2 class="section-title">RELEASES</h2>
+  <!-- RELEASES EN MEDIO -->
+  <section class="release">
+    <a href="dreams-of-the-past/">
+      <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
+      <div class="release-title">Ekinopsis — Dreams of the Past</div>
+    </a>
+  </section>
 
-  <div class="releases-container">
-    <div class="release">
-      <a href="dreams-of-the-past/">
-        <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
-        <div class="release-title">Ekinopsis — Dreams of the Past</div>
-      </a>
-    </div>
+  <section class="release">
+    <a href="nuevo-single/">
+      <img src="images/cover_new.jpg" alt="Nuevo Single">
+      <div class="release-title">Ekinopsis — Shadows of Sygma</div>
+    </a>
+  </section>
 
-    <div class="release">
-      <a href="nuevo-single/">
-        <img src="images/cover_new.jpg" alt="Nuevo Single">
-        <div class="release-title">Ekinopsis — Shadows of Sygma</div>
-      </a>
-    </div>
-
-    <div class="release">
-      <a href="#">
-        <img src="images/cover_soon.jpg" alt="Próximamente">
-        <div class="release-title">Nuevo Ritual — Próximamente</div>
-      </a>
-    </div>
+  <!-- BOTÓN DONAR ABAJO -->
+  <div class="donate-button">
+    <a href="#" onclick="showDonations()">
+      <button>Σ Donar</button>
+    </a>
   </div>
 
-  <!-- BOTÓN DONAR -->
-  <a href="donaciones/index.html"
-     style="color:white; text-decoration:none; background:#111; padding:10px 20px; border-radius:8px; display:inline-block; margin:40px auto 0;">
-    💰 Donar a Rite of Sygma
+  <!-- SECCIÓN DONACIONES OCULTA -->
+  <section id="donaciones" class="donate-section">
+    <h2>Donaciones a Rite of Sygma</h2>
+
+    <div class="donate-option">
+      <h3>🇦🇷 Alias Argentina</h3>
+      <p>pulso.electrico.psy</p>
+    </div>
+
+    <div class="donate-option">
+      <h3>₿ BTC (Red Nativa Bitcoin)</h3>
+      <p>bc1q9z2zwt9y6j5ej36hc6jmn59sf6h9r8h6u29sh3</p>
+    </div>
+
+    <div class="donate-option">
+      <h3>🌍 Banco Exterior (SEPA)</h3>
+      <p>Nombre: NOAH Savings UAB<br>
+         IBAN: DE71202208000052249203<br>
+         Tipo de cuenta: Business<br>
+         País: Germany<br>
+         Tipo de transferencia: SEPA
+      </p>
+    </div>
+  </section>
+
+  <!-- OVNI BOTÓN COMPARTIR FLOTANTE -->
+  <a href="#" id="share-link" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual" style="width: 48px; cursor: pointer;">
   </a>
 
-  <!-- OVNI FLOTANTE -->
-  <img src="images/share-ovni.svg" id="share-btn" alt="Compartir Ritual">
-
-  <!-- MENÚ MODAL DE COMPARTIR -->
-  <div id="share-modal">
-    <p>🔗 Compartir Rite of Sygma</p>
-    <a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Descubre%20Rite%20of%20Sygma%20—%20Música%20electrónica%20ritual"
-       target="_blank">Telegram</a>
-    <a href="https://api.whatsapp.com/send?text=Descubre%20Rite%20of%20Sygma%20https://sygma404.github.io/"
-       target="_blank">WhatsApp</a>
-    <a href="https://twitter.com/intent/tweet?text=Descubre%20Rite%20of%20Sygma%20https://sygma404.github.io/"
-       target="_blank">Twitter</a>
-    <a href="mailto:?subject=Rite%20of%20Sygma&body=Descubre%20Rite%20of%20Sygma%20https://sygma404.github.io/">Email</a>
-    <button id="share-close">Cerrar</button>
-  </div>
-
-  <script>
-    const shareBtn = document.getElementById('share-btn');
-    const shareModal = document.getElementById('share-modal');
-    const shareClose = document.getElementById('share-close');
-
-    shareBtn.addEventListener('click', () => {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Rite of Sygma',
-          text: 'Descubre Rite of Sygma — Música electrónica ritual',
-          url: 'https://sygma404.github.io/'
-        }).catch(console.error);
-      } else {
-        shareModal.style.display = 'block';
-      }
-    });
-
-    shareClose.addEventListener('click', () => {
-      shareModal.style.display = 'none';
-    });
-  </script>
-
-</body>
-</html>
+  <!-- MODAL DE COMPARTIR -->
+  <div id="share-modal" style="
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.95);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1001;">
+    <p style="color:#0ff; margin-bottom:12px;">🔗 Compartir Rite of Sygma</p>
+    <a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Descubre%20Rite%20of%20Sygma" target="_blank" style="display:block; color:#fff; margin:6px 0;">Telegram</a>
+    <a href="https://api.whatsapp.com/send?text=Descubre%20Rite%
