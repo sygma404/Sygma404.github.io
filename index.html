@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tipos de letra -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
   <style>
     body {
       background: #000;
@@ -70,7 +74,8 @@
       letter-spacing: 0.1em;
     }
 
-    .releases-container {
+    /* PORTALES */
+    .portals {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -78,21 +83,60 @@
       margin-top: 2rem;
     }
 
-    .release img {
-      max-width: 200px;
-      border-radius: 6px;
-    }
-
-    .release-title {
+    .portals a {
+      text-decoration: none;
       color: white;
-      font-size: 20px;
-      margin-top: 0.5rem;
-      text-decoration: none;
+      max-width: 200px;
     }
 
-    .release a {
-      text-decoration: none;
-      color: inherit;
+    .portals img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    .portals img:hover {
+      transform: scale(1.05);
+    }
+
+    .portal-title {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .portal-title.astral {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .portal-title.obscura {
+      font-family: 'UnifrakturCook', cursive;
+    }
+
+    .portal-title.pulse {
+      font-family: 'Audiowide', cursive;
+    }
+
+    /* BOTONES flotantes */
+    #share-link, #artist-link {
+      position: fixed;
+      top: 20px;
+      z-index: 9999;
+      text-align: center;
+    }
+    #share-link { right: 20px; }
+    #artist-link { left: 20px; }
+
+    #share-btn, #artist-btn {
+      width: 48px;
+      cursor: pointer;
+    }
+
+    #share-text, #artist-text {
+      color: white;
+      font-size: 0.7rem;
+      margin-top: 4px;
+      letter-spacing: 0.05em;
     }
 
     .donate-button {
@@ -115,60 +159,11 @@
       background: #333;
     }
 
-    /* BOTÓN OVNI flotante */
-    #share-link {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 9999;
-      text-align: center;
-    }
-
-    #share-btn {
-      width: 48px;
-      cursor: pointer;
-    }
-
-    #share-text {
-      color: white;
-      font-size: 0.7rem;
-      margin-top: 4px;
-      letter-spacing: 0.05em;
-    }
-
-    /* BOTÓN ALIEN flotante */
-    #artist-link {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 9999;
-      text-align: center;
-    }
-
-    #artist-btn {
-      width: 48px;
-      cursor: pointer;
-    }
-
-    #artist-text {
-      color: white;
-      font-size: 0.7rem;
-      margin-top: 4px;
-      letter-spacing: 0.05em;
-    }
-
     @media (max-width: 768px) {
-      h1.glitch {
-        font-size: 1.5rem;
-      }
-
-      #share-btn, #artist-btn {
-        width: 32px !important;
-      }
-
-      #share-text, #artist-text {
-        font-size: 0.6rem;
-      }
+      h1.glitch { font-size: 1.5rem; }
+      #share-btn, #artist-btn { width: 32px !important; }
+      #share-text, #artist-text { font-size: 0.6rem; }
+      .portals { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -182,30 +177,22 @@
   <!-- FRASE RITUAL -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
-  <!-- TÍTULO RELEASES -->
-  <h2>RELEASES</h2>
-
-  <!-- RELEASES GRILLA -->
-  <div class="releases-container">
-    <div class="release">
-      <a href="dreams-of-the-past/">
-        <img src="images/cover.jpg" alt="Ekinopsis - Dreams of the Past">
-        <div class="release-title">Ekinopsis — Dreams of the Past</div>
-      </a>
-    </div>
-    <div class="release">
-      <a href="nuevo-single/">
-        <img src="images/cover_new.jpg" alt="Nuevo Single">
-        <div class="release-title">Ekinopsis — Shadows of Sygma</div>
-      </a>
-    </div>
-    <div class="release">
-      <a href="proximo-release/">
-        <img src="images/cover_soon.jpg" alt="Próximo Ritual">
-        <div class="release-title">Próximo Ritual — Coming Soon</div>
-      </a>
-    </div>
-  </div>
+  <!-- PORTALES -->
+  <h2>PORTALES</h2>
+  <section class="portals">
+    <a href="astral/">
+      <img src="images/astral.jpg" alt="Astral">
+      <div class="portal-title astral">Astral</div>
+    </a>
+    <a href="obscura/">
+      <img src="images/obscura.jpg" alt="Obscura">
+      <div class="portal-title obscura">Obscura</div>
+    </a>
+    <a href="pulse/">
+      <img src="images/pulse.jpg" alt="Pulse">
+      <div class="portal-title pulse">Pulse</div>
+    </a>
+  </section>
 
   <!-- BOTÓN DONAR -->
   <div class="donate-button">
