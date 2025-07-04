@@ -7,7 +7,6 @@
 
   <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -20,7 +19,6 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
     }
 
     /* TÍTULO WAVE */
@@ -29,44 +27,50 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       display: inline-block;
-      animation: wave 2.5s ease-in-out infinite alternate;
+      animation: wave 3s ease-in-out infinite alternate;
       margin: 0 auto 1rem;
     }
 
     @keyframes wave {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-      100% { transform: translateY(4px); }
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(1deg); }
+      100% { transform: rotate(-1deg); }
     }
 
     .logo {
       max-width: 160px;
-      margin: 1rem auto;
+      margin: 1rem auto 2rem;
       display: block;
     }
 
     .mantra {
-      margin-top: 1rem;
+      margin: 0 auto 2rem;
       font-size: 1rem;
       color: #aaa;
       letter-spacing: 0.05em;
     }
 
-    /* PORTALES TRIÁNGULO */
+    /* PORTALES TRIÁNGULO FIJO */
     .portals {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto auto;
       gap: 3rem;
       justify-items: center;
       align-items: center;
       max-width: 800px;
-      margin: 3rem auto;
+      margin: 0 auto 4rem;
     }
 
-    .portal-psy { grid-column: 1 / 3; }
-    .portal-dark { grid-column: 1 / 2; }
-    .portal-techno { grid-column: 2 / 3; }
+    .portal-psy {
+      grid-column: 1 / 3;
+    }
+    .portal-dark {
+      grid-column: 1 / 2;
+    }
+    .portal-techno {
+      grid-column: 2 / 3;
+    }
 
     .portals a {
       text-decoration: none;
@@ -86,43 +90,27 @@
     .portal-title.dark { text-shadow: 0 0 5px #f0f; }
     .portal-title.techno { filter: blur(0.5px); }
 
-    .portal-psy img,
-    .portal-dark img,
-    .portal-techno img {
+    .portals img {
       width: 80px;
     }
 
-    .portal-psy img {
-      animation: float-up 4s ease-in-out infinite alternate;
-    }
-    .portal-dark img {
-      animation: float-side 5s ease-in-out infinite alternate;
-    }
-    .portal-techno img {
-      animation: float-diag 6s ease-in-out infinite alternate;
-    }
+    .portal-psy img { animation: float-up 4s ease-in-out infinite alternate; }
+    .portal-dark img { animation: float-side 5s ease-in-out infinite alternate; }
+    .portal-techno img { animation: float-diag 6s ease-in-out infinite alternate; }
 
-    @keyframes float-up {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-10px); }
-    }
-    @keyframes float-side {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(10px); }
-    }
-    @keyframes float-diag {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(8px, -8px); }
-    }
+    @keyframes float-up { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
+    @keyframes float-side { 0% { transform: translateX(0); } 100% { transform: translateX(10px); } }
+    @keyframes float-diag { 0% { transform: translate(0, 0); } 100% { transform: translate(8px, -8px); } }
 
-    /* BOTONES FINALES */
+    /* BOTONES FINALES EN LÍNEA */
     .footer-buttons {
-      margin-top: 4rem;
       display: flex;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+      margin-top: auto;
     }
+
     .footer-buttons a {
       color: white;
       text-decoration: none;
@@ -138,12 +126,13 @@
       background: #333;
     }
 
-    /* RESPONSIVE */
+    /* PORTALES NO SE CAMBIAN EN MOBILE */
     @media (max-width: 768px) {
       h1.wave { font-size: 2rem; }
       .portals {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
         gap: 2rem;
       }
     }
@@ -160,7 +149,7 @@
   <!-- FRASE -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
-  <!-- PORTALES -->
+  <!-- PORTALES SIEMPRE EN TRIÁNGULO -->
   <section class="portals">
     <a href="astral/" class="portal-psy">
       <div class="portal-title psy">Psy</div>
