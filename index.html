@@ -22,20 +22,27 @@
     }
 
     /* TÍTULO WAVE */
-    h1.wave {
-      font-size: 3rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: inline-block;
-      animation: wave 3s ease-in-out infinite alternate;
-      margin: 0 auto 1rem;
-    }
+  h1.wave {
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-block;
+  animation: wave 3s ease-in-out infinite alternate;
+  margin: 0 auto 1rem;
+  white-space: nowrap; /* Esto lo mantiene en una línea */
+}
 
-    @keyframes wave {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-      100% { transform: translateY(5px); }
-    }
+@keyframes wave {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(5px); }
+}
+
+@media (max-width: 768px) {
+  h1.wave {
+    font-size: 2rem;
+  }
+}
 
     .logo {
       max-width: 160px;
