@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <!-- Tipos de letra -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook&display=swap" rel="stylesheet">
@@ -87,23 +87,14 @@
     .portals a {
       text-decoration: none;
       color: white;
-      max-width: 200px;
-    }
-
-    .portals img {
-      width: 100%;
-      border-radius: 8px;
-      animation: float 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-8px); }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .portal-title {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
       letter-spacing: 0.05em;
     }
 
@@ -117,6 +108,17 @@
 
     .portal-title.techno {
       font-family: 'Audiowide', cursive;
+    }
+
+    .portals img {
+      width: 80px;
+      animation: float 4s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
     }
 
     /* BOTONES flotantes */
@@ -183,16 +185,16 @@
   <h2>PORTALES</h2>
   <section class="portals">
     <a href="astral/">
-      <img src="images/astral.png" alt="Psy Portal">
       <div class="portal-title psy">Psy</div>
+      <img src="images/astral.png" alt="Psy Portal">
     </a>
     <a href="obscura/">
-      <img src="images/obscura.png" alt="Darck Portal">
       <div class="portal-title darck">Darck</div>
+      <img src="images/obscura.png" alt="Darck Portal">
     </a>
     <a href="pulse/">
-      <img src="images/pulse.png" alt="Techno Portal">
       <div class="portal-title techno">Techno</div>
+      <img src="images/pulse.png" alt="Techno Portal">
     </a>
   </section>
 
