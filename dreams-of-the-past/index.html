@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ekinopsis — Dreams of the Past</title>
+  <title>Dreams of the Past</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -12,13 +12,14 @@
       font-family: 'Orbitron', sans-serif;
       text-align: center;
       margin: 0;
-      padding: 2rem;
+      padding: 0;
     }
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
+      margin-top: 2rem;
       letter-spacing: 0.1em;
     }
-    img.cover {
+    img {
       width: 250px;
       margin: 2rem auto;
       border-radius: 8px;
@@ -34,62 +35,60 @@
     }
     .buttons {
       margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
     }
     .buttons button {
       background: #111;
       color: #fff;
-      border: 1px solid #333;
+      border: none;
       padding: 0.6rem 1.4rem;
+      margin: 0.5rem;
       font-family: 'Orbitron', sans-serif;
       cursor: pointer;
       border-radius: 4px;
       transition: background 0.3s;
-      min-width: 220px;
     }
     .buttons button:hover {
       background: #333;
     }
-    .btc-qr {
-      width: 150px;
-      margin-top: 1rem;
-    }
-    .note {
+    .download-note {
+      margin-top: 0.5rem;
       font-size: 0.85rem;
-      color: #aaa;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
+    .qr {
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
   <h1>Ekinopsis — Dreams of the Past</h1>
-  <img class="cover" src="../images/cover.jpg" alt="Dreams of the Past">
-
+  <img src="../images/cover.jpg" alt="Dreams of the Past">
   <div class="onirico">
     <p>Lo ancestral no duerme: sueña a través de nosotros.<br>
     Cada pulso electrónico es un eco del pasado buscando forma.</p>
   </div>
-
   <audio controls>
     <source src="preview.mp3" type="audio/mpeg">
     Tu navegador no soporta audio HTML5.
   </audio>
 
+  <p class="download-note">⬇ Download</p>
+  
   <div class="buttons">
-    <button onclick="alert('Alias MP: rite-of-sygma\nTitular: Adan Rosenthal\nPrecio: $4000 ARS\nEnvía comprobante a ekinopsismusic@gmail.com o @Riteofsygma')">🇦🇷 Pagar Argentina — $4000 ARS</button>
-
-    <button onclick="window.open('https://gumroad.com/', '_blank')">🌍 Comprar Internacional — $4 USD</button>
-
-    <button onclick="alert('Precio: 4 USD (calcula BTC equivalente)\nEscanea QR y paga.\nEnvía comprobante a ekinopsismusic@gmail.com o @Riteofsygma')">🪙 Pagar con Cripto — BTC</button>
-    <img class="btc-qr" src="../donaciones/btc-qr.jpeg" alt="BTC QR">
+    <button onclick="window.open('https://tu_gumroad_link', '_blank')">💳 Tarjeta / PayPal</button>
+    <button onclick="alertCripto()">🪙 Pagar con Cripto – BTC</button>
   </div>
 
- <p class="note">
-  Envía tu comprobante:<br>
-  👉 <a href="mailto:ekinopsismusic@gmail.com?subject=Comprobante%20Dreams%20of%20the%20Past&body=Hola%2C%20adjunto%20comprobante%20de%20pago%20para%20Dreams%20of%20the%20Past." style="color:#0ff;text-decoration:underline;">Por Email</a><br>
-  👉 <a href="https://t.me/Riteofsygma" style="color:#f0f;text-decoration:underline;">Por Telegram</a>
-</p> 
+  <div class="qr">
+    <img src="../donaciones/btc-qr.jpeg" alt="BTC QR" width="150">
+  </div>
+
+  <script>
+    function alertCripto() {
+      alert('Precio: 4 USD (calcula BTC equivalente).\nEscanea el QR y paga.\nEnvía comprobante por Telegram: https://t.me/Riteofsygma');
+      window.open('https://t.me/Riteofsygma', '_blank');
+    }
+  </script>
 </body>
 </html>
