@@ -7,7 +7,6 @@
 
   <!-- Tipos de letra -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
   <style>
@@ -75,13 +74,16 @@
       letter-spacing: 0.1em;
     }
 
-    /* PORTALES */
+    /* PORTALES EN TRIÁNGULO */
     .portals {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
       gap: 2rem;
-      margin-top: 2rem;
+      justify-items: center;
+      align-items: center;
+      max-width: 800px;
+      margin: 3rem auto;
     }
 
     .portals a {
@@ -92,6 +94,18 @@
       align-items: center;
     }
 
+    .portal-psy {
+      grid-column: 1 / 3;
+    }
+
+    .portal-darck {
+      grid-column: 1 / 2;
+    }
+
+    .portal-techno {
+      grid-column: 2 / 3;
+    }
+
     .portal-title {
       font-size: 1.6rem;
       margin-bottom: 0.5rem;
@@ -100,25 +114,48 @@
 
     .portal-title.psy {
       font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 5px #0ff;
     }
 
     .portal-title.darck {
-      font-family: 'UnifrakturCook', cursive;
+      font-family: 'Orbitron', sans-serif; /* Más legible */
+      text-shadow: 0 0 5px #f0f;
     }
 
     .portal-title.techno {
       font-family: 'Audiowide', cursive;
+      filter: blur(0.5px);
     }
 
-    .portals img {
+    /* ANIMACIONES DIFERENTES */
+    .portal-psy img {
       width: 80px;
-      animation: float 4s ease-in-out infinite alternate;
-      will-change: transform;
+      animation: float-up 4s ease-in-out infinite alternate;
     }
 
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-8px); }
+    .portal-darck img {
+      width: 80px;
+      animation: float-side 5s ease-in-out infinite alternate;
+    }
+
+    .portal-techno img {
+      width: 80px;
+      animation: float-diag 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes float-up {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    @keyframes float-side {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(10px); }
+    }
+
+    @keyframes float-diag {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(8px, -8px); }
     }
 
     /* BOTONES flotantes */
@@ -167,10 +204,11 @@
       h1.glitch { font-size: 1.5rem; }
       #share-btn, #artist-btn { width: 32px !important; }
       #share-text, #artist-text { font-size: 0.6rem; }
-      .portals { flex-direction: column; align-items: center; }
+      .portals { display: flex; flex-direction: column; align-items: center; }
     }
   </style>
 </head>
+
 <body>
   <!-- LOGO -->
   <img class="logo" src="images/logo.png" alt="Rite of Sygma Logo">
@@ -178,21 +216,21 @@
   <!-- NOMBRE GLITCH -->
   <h1 class="glitch" data-text="Rite of Sygma">Rite of Sygma</h1>
 
-  <!-- FRASE RITUAL -->
+  <!-- FRASE -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
   <!-- PORTALES -->
   <h2>PORTALES</h2>
   <section class="portals">
-    <a href="astral/">
+    <a href="astral/" class="portal-psy">
       <div class="portal-title psy">Psy</div>
       <img src="images/astral.png" alt="Psy Portal">
     </a>
-    <a href="obscura/">
+    <a href="obscura/" class="portal-darck">
       <div class="portal-title darck">Darck</div>
       <img src="images/obscura.png" alt="Darck Portal">
     </a>
-    <a href="pulse/">
+    <a href="pulse/" class="portal-techno">
       <div class="portal-title techno">Techno</div>
       <img src="images/pulse.png" alt="Techno Portal">
     </a>
@@ -205,13 +243,12 @@
     </a>
   </div>
 
-  <!-- OVNI FLOTANTE COMPARTIR -->
+  <!-- BOTONES flotantes -->
   <a href="#" id="share-link">
     <img src="images/share-ovni.jpeg" id="share-btn" alt="Compartir Ritual">
     <div id="share-text">Compartir</div>
   </a>
 
-  <!-- ALIEN FLOTANTE ARTISTS -->
   <a href="artists/index.html" id="artist-link">
     <img src="images/alien.jpeg" id="artist-btn" alt="Sygma Artists">
     <div id="artist-text">Sygma Artists</div>
