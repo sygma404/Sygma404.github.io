@@ -5,7 +5,7 @@
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Tipos de letra -->
+  <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 
@@ -23,42 +23,20 @@
       justify-content: space-between;
     }
 
-    h1.glitch {
+    /* TÍTULO WAVE */
+    h1.wave {
       font-size: 4rem;
-      position: relative;
       letter-spacing: 0.1em;
-      color: #fff;
       text-transform: uppercase;
+      display: inline-block;
+      animation: wave 2s ease-in-out infinite alternate;
+      margin: 0 auto 1rem;
     }
 
-    h1.glitch::before,
-    h1.glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    h1.glitch::before {
-      text-shadow: 2px 0 #f0f, 4px 0 #0ff;
-      clip: rect(0, 900px, 0, 0);
-      animation: glitch 1.5s infinite linear alternate-reverse;
-    }
-
-    h1.glitch::after {
-      text-shadow: -2px 0 #0ff, -4px 0 #f0f;
-      clip: rect(0, 900px, 0, 0);
-      animation: glitch 2.5s infinite linear alternate-reverse;
-    }
-
-    @keyframes glitch {
-      0% { clip: rect(20px, 9999px, 40px, 0); }
-      20% { clip: rect(50px, 9999px, 80px, 0); }
-      40% { clip: rect(20px, 9999px, 60px, 0); }
-      60% { clip: rect(70px, 9999px, 100px, 0); }
-      80% { clip: rect(20px, 9999px, 40px, 0); }
-      100% { clip: rect(50px, 9999px, 70px, 0); }
+    @keyframes wave {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+      100% { transform: translateY(2px); }
     }
 
     .logo {
@@ -69,12 +47,12 @@
 
     .mantra {
       margin-top: 1rem;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #aaa;
       letter-spacing: 0.05em;
     }
 
-    /* PORTALES EN TRIÁNGULO */
+    /* PORTALES TRIÁNGULO */
     .portals {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -138,7 +116,7 @@
       text-decoration: none;
       font-family: 'Orbitron', sans-serif;
       border: 1px solid #333;
-      padding: 0.4rem 1rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 4px;
       transition: background 0.3s;
     }
@@ -146,16 +124,21 @@
       background: #333;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      h1.glitch { font-size: 2rem; }
-      .portals { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 2rem; }
+      h1.wave { font-size: 2.5rem; }
+      .portals {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 2rem;
+      }
     }
   </style>
 </head>
 
 <body>
   <!-- TÍTULO -->
-  <h1 class="glitch" data-text="Rite of Sygma">Rite of Sygma</h1>
+  <h1 class="wave">Rite of Sygma</h1>
 
   <!-- LOGO -->
   <img class="logo" src="images/logo.png" alt="Rite of Sygma Logo">
@@ -198,13 +181,11 @@
   <script>
     const shareBtn = document.getElementById('share-link');
     const shareModal = document.getElementById('share-modal');
-    const shareClose = document.getElementById('share-close');
-
     shareBtn.addEventListener('click', (e) => {
       e.preventDefault();
       shareModal.style.display = 'block';
     });
-    shareClose.addEventListener('click', () => {
+    document.getElementById('share-close').addEventListener('click', () => {
       shareModal.style.display = 'none';
     });
   </script>
