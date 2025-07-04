@@ -4,10 +4,8 @@
   <meta charset="UTF-8" />
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     body {
       background: #000;
@@ -22,34 +20,26 @@
     }
 
     /* TÍTULO WAVE */
-  h1.wave {
-  font-size: 3rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: inline-block;
-  animation: wave 3s ease-in-out infinite alternate;
-  margin: 0 auto 1rem;
-  white-space: nowrap; /* Esto lo mantiene en una línea */
-}
-
-@keyframes wave {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(5px); }
-}
-
-@media (max-width: 768px) {
-  h1.wave {
-    font-size: 2rem;
-  }
-}
+    h1.wave {
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+      animation: wave 3s ease-in-out infinite alternate;
+      margin: 0 auto 1rem;
+      white-space: nowrap;
+    }
+    @keyframes wave {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(5px); }
+    }
 
     .logo {
       max-width: 160px;
       margin: 1rem auto 2rem;
       display: block;
     }
-
     .mantra {
       margin: 0 auto 2rem;
       font-size: 1rem;
@@ -80,6 +70,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
     }
 
     .portal-title {
@@ -87,15 +78,16 @@
       margin-bottom: 0.5rem;
       letter-spacing: 0.05em;
     }
-
     .portal-title.psy { text-shadow: 0 0 5px #0ff; }
     .portal-title.dark { text-shadow: 0 0 5px #f0f; }
     .portal-title.techno { filter: blur(0.5px); }
 
     .portals img {
       width: 80px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    /* Animaciones de flotar básicas */
     .portal-psy img { animation: float-up 4s ease-in-out infinite alternate; }
     .portal-dark img { animation: float-side 5s ease-in-out infinite alternate; }
     .portal-techno img { animation: float-diag 6s ease-in-out infinite alternate; }
@@ -103,6 +95,20 @@
     @keyframes float-up { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
     @keyframes float-side { 0% { transform: translateX(0); } 100% { transform: translateX(10px); } }
     @keyframes float-diag { 0% { transform: translate(0, 0); } 100% { transform: translate(8px, -8px); } }
+
+    /* EFECTOS HOVER ÚNICOS PARA CADA PORTAL */
+    .portal-psy:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #0ff;
+    }
+    .portal-dark:hover img {
+      transform: rotate(5deg) scale(1.05);
+      box-shadow: 0 0 20px #f0f;
+    }
+    .portal-techno:hover img {
+      transform: scale(1.05) rotate(-5deg);
+      box-shadow: 0 0 20px #0f0;
+    }
 
     /* BOTONES FINALES EN LÍNEA CON NEÓN */
     .footer-buttons {
@@ -112,7 +118,6 @@
       flex-wrap: wrap;
       margin-top: auto;
     }
-
     .footer-buttons a {
       color: white;
       text-decoration: none;
@@ -125,9 +130,8 @@
       text-align: center;
       box-shadow: 0 0 8px #0ff;
     }
-
     .footer-buttons a:nth-child(2) { box-shadow: 0 0 8px #f0f; }
-    .footer-buttons a:nth-child(3) { box-shadow: 0 0 8px #0ff; }
+    .footer-buttons a:nth-child(3) { box-shadow: 0 0 8px #0f0; }
 
     .footer-buttons a:hover {
       background: #111;
@@ -137,29 +141,17 @@
     /* RESPONSIVE */
     @media (max-width: 768px) {
       h1.wave { font-size: 2rem; }
-      .portals {
-        gap: 2rem 3rem;
-        padding: 0 1rem;
-      }
-      .footer-buttons {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
+      .portals { gap: 2rem 3rem; padding: 0 1rem; }
+      .footer-buttons { flex-direction: row; flex-wrap: wrap; }
     }
   </style>
 </head>
 
 <body>
-  <!-- TÍTULO -->
   <h1 class="wave">Rite of Sygma</h1>
-
-  <!-- LOGO -->
   <img class="logo" src="images/logo.jpeg" alt="Rite of Sygma Logo">
-
-  <!-- FRASE -->
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
 
-  <!-- PORTALES EN TRIÁNGULO FIJO -->
   <section class="portals">
     <a href="astral/" class="portal-psy">
       <div class="portal-title psy">Psy</div>
@@ -175,7 +167,6 @@
     </a>
   </section>
 
-  <!-- BOTONES FINALES -->
   <div class="footer-buttons">
     <a href="donaciones/index.html">Σ Donar</a>
     <a href="#" id="share-link">Compartir</a>
