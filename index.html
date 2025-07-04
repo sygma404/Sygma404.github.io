@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <!-- Tipos de letra -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook&display=swap" rel="stylesheet">
@@ -92,11 +93,12 @@
     .portals img {
       width: 100%;
       border-radius: 8px;
-      transition: transform 0.3s;
+      animation: float 4s ease-in-out infinite alternate;
     }
 
-    .portals img:hover {
-      transform: scale(1.05);
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-8px); }
     }
 
     .portal-title {
@@ -105,15 +107,15 @@
       letter-spacing: 0.05em;
     }
 
-    .portal-title.astral {
+    .portal-title.psy {
       font-family: 'Orbitron', sans-serif;
     }
 
-    .portal-title.obscura {
+    .portal-title.darck {
       font-family: 'UnifrakturCook', cursive;
     }
 
-    .portal-title.pulse {
+    .portal-title.techno {
       font-family: 'Audiowide', cursive;
     }
 
@@ -181,16 +183,16 @@
   <h2>PORTALES</h2>
   <section class="portals">
     <a href="astral/">
-      <img src="images/Astral.jpg" alt="Astral">
-      <div class="portal-title astral">Astral</div>
+      <img src="images/astral.png" alt="Psy Portal">
+      <div class="portal-title psy">Psy</div>
     </a>
     <a href="obscura/">
-      <img src="images/obscura.jpg" alt="Obscura">
-      <div class="portal-title obscura">Obscura</div>
+      <img src="images/obscura.png" alt="Darck Portal">
+      <div class="portal-title darck">Darck</div>
     </a>
     <a href="pulse/">
-      <img src="images/Pulse.jpg" alt="Pulse">
-      <div class="portal-title pulse">Pulse</div>
+      <img src="images/pulse.png" alt="Techno Portal">
+      <div class="portal-title techno">Techno</div>
     </a>
   </section>
 
