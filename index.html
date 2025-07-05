@@ -6,18 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Tipografía -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Open Graph meta para previews -->
-<meta property="og:title" content="Rite of Sygma">
-<meta property="og:description" content="Psychedelic music portal">
-<meta property="og:image" content="https://sygma404.github.io/images/logo.png">
-<meta property="og:url" content="https://sygma404.github.io/">
-<meta property="og:type" content="website">
 
-<!-- Opcional: mejora preview en Twitter -->
-<meta name="twitter:card" content="summary_large_image">
+  <!-- Open Graph meta para previews -->
+  <meta property="og:title" content="Rite of Sygma">
+  <meta property="og:description" content="Psychedelic music portal">
+  <meta property="og:image" content="https://sygma404.github.io/images/logo.png">
+  <meta property="og:url" content="https://sygma404.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
     body {
-      background: #000;
+      background: #000 url('images/Fondo.png') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       font-family: 'Orbitron', sans-serif;
       text-align: center;
@@ -25,7 +26,18 @@
       padding: 2rem;
       min-height: 100vh;
       display: flex;
-      flex-direction: column; 
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Overlay para oscurecer el fondo */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: -1;
     }
 
     /* TÍTULO WAVE */
@@ -49,6 +61,7 @@
       margin: 1rem auto 2rem;
       display: block;
     }
+
     .mantra {
       margin: 0 auto 2rem;
       font-size: 1rem;
