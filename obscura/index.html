@@ -1,16 +1,77 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dark — Rite of Sygma</title>
+  <title>Dark Portal | Rite of Sygma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Tipografía gótica -->
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook&display=swap" rel="stylesheet">
+
   <style>
-    body { background: #000; color: #fff; font-family: 'UnifrakturCook', cursive; text-align: center; padding: 2rem; }
-    h1 { font-size: 2rem; letter-spacing: 0.1em; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'UnifrakturCook', cursive;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      margin-bottom: 3rem;
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    .release {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+      margin: 1rem;
+      max-width: 320px;
+    }
+
+    .release img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .release:hover img {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #f0f; /* Magenta o violeta para el portal Dark */
+    }
+
+    .release h2 {
+      margin-top: 1rem;
+      font-size: 1rem;
+      text-shadow: 0 0 5px #f0f;
+    }
+
+    @media (max-width: 768px) {
+      .release {
+        max-width: 90%;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Dark</h1>
-  <p>Explora el lado oscuro de Rite of Sygma.</p>
+  <h1>Dark Portal</h1>
+  <p>Explore the obscure side of Rite of Sygma.</p>
+
+  <!-- Release: Ekinopsis & Residual Binaries - Digital Marsh -->
+  <a href="Digital Marsh/index.html" class="release">
+    <img src="Digital Marsh/Ekiresidual.png" alt="Ekinopsis & Residual Binaries - Digital Marsh">
+    <h2>Ekinopsis & Residual Binaries — Digital Marsh</h2>
+  </a>
+
 </body>
 </html>
