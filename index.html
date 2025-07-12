@@ -31,6 +31,7 @@
       z-index: 1;
     }
 
+    /* Overlay para oscurecer el fondo */
     body::before {
       content: "";
       position: fixed;
@@ -39,93 +40,6 @@
       z-index: -1;
     }
 
-    /* NÚCLEO CHIP Y PORTALES */
-    .nucleo {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 400px;
-      height: 400px;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .chip-core {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 100px;
-      height: 100px;
-      transform: translate(-50%, -50%);
-      animation: pulse 2s infinite;
-    }
-
-    .portal {
-      position: absolute;
-      border: 2px solid #0ff;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-      animation: float 4s ease-in-out infinite alternate,
-                 glitch 1.5s infinite;
-    }
-
-    .portal1 {
-      width: 60px;
-      height: 60px;
-      top: 80px;
-      left: 300px;
-    }
-
-    .portal2 {
-      width: 60px;
-      height: 60px;
-      top: 80px;
-      left: 40px;
-    }
-
-    .portal3 {
-      width: 60px;
-      height: 60px;
-      top: 280px;
-      left: 170px;
-    }
-
-    .lines {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    line {
-      stroke: #0ff;
-      stroke-width: 2;
-      stroke-linecap: round;
-      animation: linePulse 2s infinite alternate;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); filter: drop-shadow(0 0 5px #0ff); }
-      50% { transform: translate(-50%, -50%) scale(1.05); filter: drop-shadow(0 0 15px #0ff); }
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(10px); }
-    }
-
-    @keyframes glitch {
-      0% { filter: hue-rotate(0deg) saturate(1); }
-      50% { filter: hue-rotate(20deg) saturate(2); }
-      100% { filter: hue-rotate(0deg) saturate(1); }
-    }
-
-    @keyframes linePulse {
-      0% { stroke-opacity: 0.4; }
-      100% { stroke-opacity: 1; }
-    }
-
-    /* TÍTULO */
     h1.wave {
       font-size: 3rem;
       letter-spacing: 0.1em;
@@ -193,17 +107,33 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .portal-psy img { animation: float-up 4s ease-in-out infinite alternate; }
-    .portal-dark img { animation: float-side 5s ease-in-out infinite alternate; }
-    .portal-techno img { animation: float-diag 6s ease-in-out infinite alternate; }
+    /* ===== NUEVO EFECTO PULSE GLOW PARA IMÁGENES Y TEXTOS ===== */
+    @keyframes pulse-glow {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
+      }
+    }
 
-    @keyframes float-up { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
-    @keyframes float-side { 0% { transform: translateX(0); } 100% { transform: translateX(10px); } }
-    @keyframes float-diag { 0% { transform: translate(0, 0); } 100% { transform: translate(8px, -8px); } }
+    .portal-psy img,
+    .portal-dark img,
+    .portal-techno img {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
 
-    .portal-psy:hover img { transform: scale(1.05); box-shadow: 0 0 20px #0ff; }
-    .portal-dark:hover img { transform: rotate(5deg) scale(1.05); box-shadow: 0 0 20px #f0f; }
-    .portal-techno:hover img { transform: scale(1.05) rotate(-5deg); box-shadow: 0 0 20px #0f0; }
+    .portal-psy .portal-title,
+    .portal-dark .portal-title,
+    .portal-techno .portal-title {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
 
     .footer-buttons {
       display: flex;
@@ -241,19 +171,6 @@
 </head>
 
 <body>
-  <!-- Núcleo chip y portales animados -->
-  <div class="nucleo">
-    <img src="images/Chip.png" alt="Chip central" class="chip-core" />
-    <div class="portal portal1"></div>
-    <div class="portal portal2"></div>
-    <div class="portal portal3"></div>
-    <svg class="lines" width="400" height="400">
-      <line class="line1" x1="200" y1="200" x2="320" y2="100" />
-      <line class="line2" x1="200" y1="200" x2="80" y2="100" />
-      <line class="line3" x1="200" y1="200" x2="200" y2="320" />
-    </svg>
-  </div>
-
   <h1 class="wave">Rite of Sygma</h1>
   <img class="logo" src="images/logo.jpeg" alt="Rite of Sygma Logo">
   <p class="mantra">Donde las frecuencias se vuelven ceremonia.</p>
@@ -265,7 +182,7 @@
     </a>
     <a href="obscura/" class="portal-dark">
       <div class="portal-title dark">Dark</div>
-      <img src="images/obscura.jpg" alt="Dark Portal">
+      <img src="images/obscura.png" alt="Dark Portal">
     </a>
     <a href="pulse/" class="portal-techno">
       <div class="portal-title techno">Tech</div>
