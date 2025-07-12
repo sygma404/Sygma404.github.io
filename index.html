@@ -93,46 +93,42 @@
       position: relative;
     }
 
+    /* ==== ESTILO PALABRAS NIVELADAS ==== */
     .portal-title {
       font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.2rem;  /* pegado al icono */
       letter-spacing: 0.05em;
+      text-shadow: none;
+      filter: none;
+      animation: float-soft 4s ease-in-out infinite;
     }
-    .portal-title.psy { text-shadow: 0 0 5px #0ff; }
-    .portal-title.dark { text-shadow: 0 0 5px #f0f; }
-    .portal-title.techno { filter: blur(0.5px); }
 
+    /* Todas limpias */
+    .portal-title.psy,
+    .portal-title.dark,
+    .portal-title.techno {
+      text-shadow: none;
+      filter: none;
+    }
+
+    /* ==== ÍCONOS IGUALES ==== */
     .portals img {
-      width: 80px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100px;
+      height: auto;
+      transition: transform 0.3s ease;
+      animation: float-soft 4s ease-in-out infinite;
     }
 
-    /* ===== NUEVO EFECTO PULSE GLOW PARA IMÁGENES Y TEXTOS ===== */
-    @keyframes pulse-glow {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
-      }
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff inset;
-      }
+    /* ==== ANIMACIÓN FLOAT SUAVE ==== */
+    @keyframes float-soft {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
     }
 
-    .portal-psy img,
-    .portal-dark img,
-    .portal-techno img {
-      animation: pulse-glow 3s ease-in-out infinite;
-    }
-
-    .portal-psy .portal-title,
-    .portal-dark .portal-title,
-    .portal-techno .portal-title {
-      animation: pulse-glow 3s ease-in-out infinite;
+    /* Hover mínimo sin glow */
+    .portals a:hover img {
+      transform: scale(1.05);
     }
 
     .footer-buttons {
@@ -152,14 +148,13 @@
       transition: background 0.3s, box-shadow 0.3s;
       min-width: 100px;
       text-align: center;
-      box-shadow: 0 0 8px #0ff;
+      box-shadow: none;
     }
-    .footer-buttons a:nth-child(2) { box-shadow: 0 0 8px #f0f; }
-    .footer-buttons a:nth-child(3) { box-shadow: 0 0 8px #0f0; }
+    .footer-buttons a:nth-child(2) { box-shadow: none; }
+    .footer-buttons a:nth-child(3) { box-shadow: none; }
 
     .footer-buttons a:hover {
       background: #111;
-      box-shadow: 0 0 15px #0ff;
     }
 
     @media (max-width: 768px) {
