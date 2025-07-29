@@ -204,5 +204,36 @@
       shareModal.style.display = 'none';
     });
   </script>
+  <img id="eye" src="images/icons8-eye-48 (1).png" alt="ojo" style="position:fixed; width:50px; z-index:1000;">
+
+<script>
+  const eye = document.getElementById('eye');
+  let x = 100, y = 100;
+  let dx = 2, dy = 2;
+
+  function moveEye() {
+    const w = window.innerWidth - eye.offsetWidth;
+    const h = window.innerHeight - eye.offsetHeight;
+
+    x += dx;
+    y += dy;
+
+    if (x <= 0 || x >= w) dx *= -1;
+    if (y <= 0 || y >= h) dy *= -1;
+
+    eye.style.left = x + 'px';
+    eye.style.top = y + 'px';
+    requestAnimationFrame(moveEye);
+  }
+
+  moveEye();
+
+  eye.addEventListener('click', () => {
+    document.body.style.filter = 'contrast(200%) hue-rotate(90deg)';
+    setTimeout(() => {
+      document.body.style.filter = '';
+    }, 300);
+  });
+</script>
 </body>
 </html>
