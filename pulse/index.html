@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portal Tech — Rite of Sygma</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <title>Tech Portal | Rite of Sygma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Tipografía Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       background: #000;
@@ -12,46 +16,62 @@
       text-align: center;
       padding: 2rem;
     }
+
     h1 {
-      font-size: 2.5rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      color: #aaa;
-      font-size: 0.95rem;
-      margin-bottom: 2.5rem;
-    }
-    .release {
-      margin-top: 1rem;
-    }
-    .release img {
-      width: 280px;
-      border-radius: 10px;
+      font-size: 2.2rem;
+      letter-spacing: 0.1em;
       margin-bottom: 1rem;
     }
-    .release-title a {
-      color: #0ff;
+
+    p {
+      margin-bottom: 3rem;
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    .release {
+      display: inline-block;
       text-decoration: none;
-      font-size: 1.1rem;
+      color: inherit;
+      margin: 1rem;
+      max-width: 320px;
+    }
+
+    .release img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .release:hover img {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #0ff; /* Cyan vibe para Tech */
+    }
+
+    .release h2 {
+      margin-top: 1rem;
+      font-size: 1rem;
       text-shadow: 0 0 5px #0ff;
     }
-    .release-title a:hover {
-      text-decoration: underline;
+
+    @media (max-width: 768px) {
+      .release {
+        max-width: 90%;
+      }
     }
   </style>
 </head>
-<body>
-  <h1>PORTAL TECH</h1>
-  <div class="subtitle">Explore the synthetic side of Rite of Sygma.</div>
 
-  <div class="release">
-    <a href="strange crisis/index.html">
-      <img src="strange crisis/Rober Natvel & Ekinopsis_Strange Crisis 2.jpg" alt="Strange Crisis Cover">
-    </a>
-    <div class="release-title">
-      <a href="strange crisis/index.html">Rober Natvel & Ekinopsis — Strange Crisis</a>
-    </div>
-  </div>
+<body>
+  <h1>Portal Tech</h1>
+  <p>Explore the synthetic side of Rite of Sygma.</p>
+
+  <!-- Single Release -->
+  <a href="strange crisis/index.html" class="release">
+    <img src="strange crisis/Rober Natvel & Ekinopsis_Strange Crisis 2.jpg" alt="Strange Crisis Cover">
+    <h2>Rober Natvel & Ekinopsis — Strange Crisis</h2>
+  </a>
+
 </body>
 </html>
