@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8" />
+<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8" />
   <title>Rite of Sygma</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Unica+One&display=swap" rel="stylesheet">
@@ -23,13 +22,30 @@
       flex-direction: column;
       position: relative;
       z-index: 1;
-      cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1035.cur'), auto;
+      cursor: none;
     }body::before {
   content: "";
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.4);
   z-index: -1;
+}
+
+#custom-cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: #0ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  box-shadow: 0 0 12px #0ff, 0 0 24px #0ff;
+  animation: trail 0.2s linear infinite;
+}
+
+@keyframes trail {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 
 h1.wave {
@@ -50,7 +66,7 @@ h1.wave {
 
 .logo {
   max-width: 240px;
-  margin: 1rem auto;
+  margin: 2rem auto;
   display: block;
   filter: drop-shadow(0 0 20px #0ff) contrast(120%) brightness(110%);
   animation: float-soft 4s ease-in-out infinite;
@@ -63,34 +79,29 @@ h1.wave {
 }
 
 .mantra {
-  margin: 0 auto 1rem;
-  font-size: 1rem;
+  margin: 2rem auto 2rem;
+  font-size: 1.4rem;
   font-family: 'Share Tech Mono', monospace;
-  color: #fff;
-  padding: 1rem;
-  border-radius: 50% 25% / 30% 10%;
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px dashed #0ff;
-  text-shadow: 0 0 6px #0ff;
-  max-width: 80%;
+  color: #0ff;
+  text-shadow: 0 0 8px #0ff;
 }
 
 .footer-buttons.artists {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .footer-buttons.artists a {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   box-shadow: 0 0 12px #f0f, 0 0 20px #0ff;
   border: 2px solid #0ff;
 }
 
 .subtitle-ritual {
-  font-size: 0.95rem;
-  color: #ccc;
+  font-size: 1.1rem;
+  color: #fff;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   font-family: 'Unica One', cursive;
   text-shadow: 0 0 6px #0ff, 0 0 12px #f0f;
 }
@@ -99,7 +110,7 @@ h1.wave {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   max-width: 1000px;
   margin: 0 auto 4rem;
 }
@@ -154,31 +165,38 @@ h1.wave {
 
 @media (max-width: 768px) {
   h1.wave { font-size: 2rem; }
-  .portals { gap: 1.5rem; }
-  .mantra { font-size: 0.9rem; padding: 0.7rem; }
+  .portals { gap: 1.8rem; }
+  .mantra { font-size: 1.1rem; padding: 0.7rem; }
 }
 
   </style>
 </head>
 <body>
+  <div id="custom-cursor"></div>
   <h1 class="wave">Rite of Sygma</h1>
   <img class="logo" src="images/logui.png" alt="Rite of Sygma Logo">
-  <p class="mantra">Where frequencies become ceremony.</p>  <div class="footer-buttons artists">
+  <p class="mantra">Where frequencies become ceremony.</p>
+  <div class="footer-buttons artists">
     <a href="artists/index.html">Sygma Artists</a>
-  </div>  <div class="subtitle-ritual">Three paths, one ceremony.</div>  <section class="portals">
+  </div>
+  <div class="subtitle-ritual">Three paths, one ceremony.</div>
+  <section class="portals">
     <a href="astral/">Psy</a>
     <a href="obscura/">Dark</a>
     <a href="pulse/">Tech</a>
-  </section>  <div class="footer-buttons">
+  </section>
+  <div class="footer-buttons">
     <a href="donaciones/index.html">Σ Donate</a>
     <a href="#" id="share-link">Share</a>
-  </div>  <div id="share-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);padding:20px;border-radius:8px;text-align:center;z-index:10000;">
+  </div>
+  <div id="share-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);padding:20px;border-radius:8px;text-align:center;z-index:10000;">
     <p style="color:#0ff;margin-bottom:12px;">🔗 Share Rite of Sygma</p>
     <a href="https://t.me/share/url?url=https://sygma404.github.io/&text=Discover Rite of Sygma" target="_blank" style="display:block;color:#fff;margin:6px 0;">Telegram</a>
     <a href="https://api.whatsapp.com/send?text=Discover Rite of Sygma https://sygma404.github.io/" target="_blank" style="display:block;color:#fff;margin:6px 0;">WhatsApp</a>
     <a href="mailto:?subject=Rite of Sygma&body=Discover Rite of Sygma https://sygma404.github.io/" style="display:block;color:#fff;margin:6px 0;">Email</a>
     <button id="share-close" style="margin-top:12px;background:#111;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;">Close</button>
-  </div>  <script>
+  </div>
+  <script>
     const shareBtn = document.getElementById('share-link');
     const shareModal = document.getElementById('share-modal');
     shareBtn.addEventListener('click', (e) => {
@@ -187,6 +205,14 @@ h1.wave {
     });
     document.getElementById('share-close').addEventListener('click', () => {
       shareModal.style.display = 'none';
-    });
-  </script></body>
-</html>
+    });const cursor = document.createElement('div');
+cursor.id = 'custom-cursor';
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+  </script>
+</body></html>
