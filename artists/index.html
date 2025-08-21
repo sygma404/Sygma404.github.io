@@ -19,10 +19,33 @@
       padding: 2rem;
     }
 
+    /* Animación viva para el logo */
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      }
+      50% {
+        box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+      }
+    }
+
     .logo {
       max-width: 150px;
       margin: 0 auto 2rem;
       display: block;
+      border-radius: 50%;
+      padding: 0.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .artist-section {
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     h1 {
@@ -66,51 +89,58 @@
   </style>
 </head>
 <body>
+
   <!-- LOGO -->
-  <img src="../images/logui.png" alt="Rite of Sygma Logo" class="logo">
+  <img src="../images/fondo.png" alt="Rite of Sygma Logo" class="logo">
 
-  <!-- TÍTULO -->
-  <h1>SYGMA ARTISTS</h1>
+  <!-- BLOQUE CON ARTISTAS -->
+  <div class="artist-section">
 
-  <!-- INTRO -->
-  <p class="intro">
-    Descubre quiénes están detrás de esta nave, operando máquinas y cables, dando forma al ritual electrónico de Rite of Sygma.
-  </p>
+    <!-- TÍTULO -->
+    <h1>SYGMA ARTISTS</h1>
 
-  <!-- EKINOPSIS -->
-  <div class="artist">
-    <div class="artist-name">EKINOPSIS</div>
-    <div class="artist-style">Psychedelic Pumpui</div>
-    <div class="artist-link">
-      Instagram: <a href="https://instagram.com/ekinopsis_music" target="_blank">@ekinopsis_music</a>
+    <!-- INTRO -->
+    <p class="intro">
+      Descubre quiénes están detrás de esta nave, operando máquinas y cables, dando forma al ritual electrónico de Rite of Sygma.
+    </p>
+
+    <!-- EKINOPSIS -->
+    <div class="artist">
+      <div class="artist-name">EKINOPSIS</div>
+      <div class="artist-style">Psychedelic Pumpui</div>
+      <div class="artist-link">
+        Instagram: <a href="https://instagram.com/ekinopsis_music" target="_blank">@ekinopsis_music</a>
+      </div>
     </div>
-  </div>
 
-  <!-- RESIDUAL BINARIES -->
-  <div class="artist">
-    <div class="artist-name">Residual Binaries</div>
-    <div class="artist-style">Dark, Twilight</div>
-    <div class="artist-link">
-      <a href="Residual-Binaries/index.html">Acceder al portal binario</a>
+    <!-- RESIDUAL BINARIES -->
+    <div class="artist">
+      <div class="artist-name">Residual Binaries</div>
+      <div class="artist-style">Dark, Twilight</div>
+      <div class="artist-link">
+        <a href="Residual-Binaries/index.html">Acceder al portal binario</a>
+      </div>
     </div>
-  </div>
 
-  <!-- ROBER NATVEL -->
-  <div class="artist">
-    <div class="artist-name">Rober Natvel</div>
-    <div class="artist-style">Tech, Techno</div>
-    <div class="artist-link">
-      Instagram: <a href="https://www.instagram.com/idankuru_music?igsh=d2YzdmJzb2FsNmlt" target="_blank">@idankuru_music</a>
+    <!-- ROBER NATVEL -->
+    <div class="artist">
+      <div class="artist-name">Rober Natvel</div>
+      <div class="artist-style">Tech, Techno</div>
+      <div class="artist-link">
+        Instagram: <a href="https://www.instagram.com/idankuru_music?igsh=d2YzdmJzb2FsNmlt" target="_blank">@idankuru_music</a>
+      </div>
     </div>
-  </div>
 
-  <!-- IDAN KURU -->
-  <div class="artist">
-    <div class="artist-name">Idan Kuru</div>
-    <div class="artist-style">Dark Forest</div>
-    <div class="artist-link">
-      Instagram: <a href="https://www.instagram.com/idankuru_music?igsh=d2YzdmJzb2FsNmlt" target="_blank">@idankuru_music</a>
+    <!-- IDAN KURU -->
+    <div class="artist">
+      <div class="artist-name">Idan Kuru</div>
+      <div class="artist-style">Dark Forest</div>
+      <div class="artist-link">
+        Instagram: <a href="https://www.instagram.com/idankuru_music?igsh=d2YzdmJzb2FsNmlt" target="_blank">@idankuru_music</a>
+      </div>
     </div>
-  </div>
+
+  </div> <!-- Cierra .artist-section -->
+
 </body>
 </html>
